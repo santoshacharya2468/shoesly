@@ -13,6 +13,7 @@ class AppStarter extends StatefulWidget {
 
 class _AppStarterState extends State<AppStarter> {
   final _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

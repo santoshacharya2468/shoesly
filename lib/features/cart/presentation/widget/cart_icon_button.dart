@@ -3,11 +3,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shoesly/core/constant/app_assets.dart';
 
 class CartIconButton extends StatelessWidget {
-  const CartIconButton({super.key});
+  final VoidCallback onpressed;
+  const CartIconButton({super.key, required this.onpressed});
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {}, icon: SvgPicture.asset(AppAssets.cartIcon));
+        onPressed: onpressed, icon: SvgPicture.asset(AppAssets.cartIcon));
   }
 }

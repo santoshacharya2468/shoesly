@@ -18,6 +18,7 @@ import '../../features/brand/data/repository/i_brand_repository.dart' as _i7;
 import '../../features/brand/presentation/bloc/brand_bloc.dart' as _i17;
 import '../../features/cart/data/repository/cart_repository.dart' as _i10;
 import '../../features/cart/data/repository/i_cart_repository.dart' as _i9;
+import '../../features/cart/presentation/bloc/cart_bloc.dart' as _i18;
 import '../../features/filter/data/repository/filter_repository.dart' as _i6;
 import '../../features/filter/data/repository/i_filter_repository.dart' as _i5;
 import '../../features/product/data/repository/i_product_repository.dart'
@@ -27,8 +28,8 @@ import '../../features/product/presentation/bloc/product_bloc.dart' as _i16;
 import '../../features/review/data/repository/i_review_repository.dart' as _i13;
 import '../../features/review/data/repository/review_repository.dart' as _i14;
 import '../../features/review/presentation/bloc/review_bloc.dart' as _i15;
-import '../../seeder.dart' as _i18;
-import 'module_injection.dart' as _i19;
+import '../../seeder.dart' as _i19;
+import 'module_injection.dart' as _i20;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -60,7 +61,11 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i16.ProductBloc(gh<_i11.IProductRepository>()));
     gh.factory<_i17.BrandBloc>(
         () => _i17.BrandBloc(gh<_i7.IBrandRepository>()));
-    gh.factory<_i18.DatabaseSeeder>(() => _i18.DatabaseSeeder(
+    gh.factory<_i18.CartBloc>(() => _i18.CartBloc(
+          gh<_i9.ICartRepository>(),
+          gh<_i4.FirebaseAuth>(),
+        ));
+    gh.factory<_i19.DatabaseSeeder>(() => _i19.DatabaseSeeder(
           gh<_i3.FirebaseFirestore>(),
           gh<_i7.IBrandRepository>(),
           gh<_i11.IProductRepository>(),
@@ -69,4 +74,4 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$LocalModule extends _i19.LocalModule {}
+class _$LocalModule extends _i20.LocalModule {}

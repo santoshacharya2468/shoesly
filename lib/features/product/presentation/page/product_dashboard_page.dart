@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly/core/di/di_config.dart';
+import 'package:shoesly/core/route/app_router.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/features/brand/presentation/widget/brand_list_view.dart';
 import 'package:shoesly/features/cart/presentation/widget/cart_icon_button.dart';
@@ -46,7 +47,13 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
         ),
         titleStyle: const TextStyle(
             fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
-        actions: const [CartIconButton()],
+        actions: [
+          CartIconButton(
+            onpressed: () {
+              context.router.push(const CartRoute());
+            },
+          )
+        ],
         body: BlocProvider(
           create: (context) => productBloc,
           child: Column(
