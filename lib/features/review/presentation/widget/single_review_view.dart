@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shoesly/features/review/data/model/review.dart';
 
@@ -10,7 +11,12 @@ class SingleReviewView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: ListTile(
-        leading: const CircleAvatar(),
+        leading: review.user.imageUrl != null
+            ? CircleAvatar(
+                backgroundImage:
+                    CachedNetworkImageProvider(review.user.imageUrl!),
+              )
+            : const CircleAvatar(),
         title: Text(review.user.name ?? "username",
             style: Theme.of(context).textTheme.titleMedium),
         subtitle: Column(

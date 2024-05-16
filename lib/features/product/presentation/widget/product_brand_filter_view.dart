@@ -51,7 +51,7 @@ class _ProductBrandFilterViewState extends State<ProductBrandFilterView> {
                         return SingleBrandView(
                           brand: brand,
                           type: ViewType.circularType,
-                          selected: widget.selectedBrand == brand,
+                          selected: widget.selectedBrand?.id == brand.id,
                           onPressed: () {
                             setState(() {
                               widget.onSelected(brand);
