@@ -7,6 +7,7 @@ import 'package:shoesly/core/widget/app_card.dart';
 import 'package:shoesly/core/widget/app_netork_image.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
 import 'package:shoesly/features/cart/data/model/cart_item.dart';
+import 'package:shoesly/features/cart/presentation/widget/cart_quantity_button.dart';
 
 class SingleCartItemView extends StatelessWidget {
   final CartItem cartItem;
@@ -103,36 +104,10 @@ class SingleCartItemView extends StatelessWidget {
   }
 
   Widget _buildQuantityButton({required bool isAddAction}) {
-    bool enabled = true;
-    if (!isAddAction && cartItem.quantity == 1) {
-      enabled = false;
-    }
-    final color = !enabled ? AppColors.borderColor : AppColors.blackColor;
-    return InkWell(
-      onTap: enabled
-          ? () {
-              onUpdate(
-                  isAddAction ? cartItem.quantity + 1 : cartItem.quantity - 1);
-            }
-          : null,
-      child: Container(
-        height: 20,
-        width: 20,
-        margin: const EdgeInsets.symmetric(horizontal: 05),
-        decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              width: 1,
-              color: color,
-            )),
-        child: Center(
-          child: Icon(
-            isAddAction ? Icons.add : Icons.remove,
-            size: 10,
-            color: color,
-          ),
-        ),
-      ),
-    );
+    return CartQuantityButton(
+        action:
+            isAddAction ? CartQuantityAction.add : CartQuantityAction.remove,
+        quantity: cartItem.quantity,
+        onUpdate: onUpdate);
   }
 }

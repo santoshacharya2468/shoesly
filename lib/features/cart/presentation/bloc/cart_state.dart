@@ -11,4 +11,5 @@ class CartState with _$CartState {
   const factory CartState.loading() = _CartStateLoading;
 
   const factory CartState.cartInitial() = _CartStateInitial;
+  const factory CartState.addToCartSuccess() = _CartStateAddToCartSuccess;
 }

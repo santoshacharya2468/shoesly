@@ -7,6 +7,7 @@ class BaseView extends StatelessWidget {
   final Widget body;
   final Widget? floatingActionButton;
   final bool? centerTitle;
+  final Widget? bottomNavigationBar;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   const BaseView(
       {super.key,
@@ -16,6 +17,7 @@ class BaseView extends StatelessWidget {
       required this.body,
       this.floatingActionButton,
       this.floatingActionButtonLocation,
+      this.bottomNavigationBar,
       this.centerTitle});
 
   @override
@@ -23,6 +25,7 @@ class BaseView extends StatelessWidget {
     return Scaffold(
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
+      bottomNavigationBar: bottomNavigationBar,
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12), child: body),
       appBar: AppBar(

@@ -29,6 +29,7 @@ class _CartPageState extends State<CartPage> {
               return state.when(
                   cartInitial: loadingView,
                   loading: loadingView,
+                  addToCartSuccess: loadingView,
                   failure: errorView,
                   getCartSuccess: (carts) {
                     return ListView.builder(
