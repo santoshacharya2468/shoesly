@@ -1,0 +1,246 @@
+{
+  "project_info": {
+    "project_number": "97392203803",
+    "project_id": "kbuddy-a6986",
+    "storage_bucket": "kbuddy-a6986.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97392203803:android:b244dc92c89f0146d080be",
+        "android_client_info": {
+          "package_name": "com.admin.amigowebportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD9X23aIWl4nP6IEt7EkJXA147_OXX2lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97392203803-7k38ho2712ndfh3dta7e8skdc7e77t2s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.amigowebportal"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97392203803:android:d0fa3486a82fb2d1d080be",
+        "android_client_info": {
+          "package_name": "com.amigo.net"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97392203803-3r6ka79mmug1j2fub0vaehpb994r8e0g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amigo.net",
+            "certificate_hash": "4b239b3eb1613ac02f1f9827571f7419a4d21e98"
+          }
+        },
+        {
+          "client_id": "97392203803-icifnjcrg1ucv03mjcgku23d65gf4qb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amigo.net",
+            "certificate_hash": "47366a15a800481096284689e7c4e808434eabfb"
+          }
+        },
+        {
+          "client_id": "97392203803-n0d51bdmjl81ih9b3i6enedidjni3b9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amigo.net",
+            "certificate_hash": "a3b82a288573e2498e686134ad92306845b36a65"
+          }
+        },
+        {
+          "client_id": "97392203803-rsoo1tc3lidnspso5ra1pngjbcq3u525.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amigo.net",
+            "certificate_hash": "3beab10e2b41b1edec292b0c8c06dfab1e6a011b"
+          }
+        },
+        {
+          "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD9X23aIWl4nP6IEt7EkJXA147_OXX2lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97392203803-7k38ho2712ndfh3dta7e8skdc7e77t2s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.amigowebportal"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97392203803:android:28ad76d4e51e746ed080be",
+        "android_client_info": {
+          "package_name": "com.example.kbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD9X23aIWl4nP6IEt7EkJXA147_OXX2lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97392203803-7k38ho2712ndfh3dta7e8skdc7e77t2s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.amigowebportal"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97392203803:android:85db3f413d0fed9bd080be",
+        "android_client_info": {
+          "package_name": "com.example.shoesly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD9X23aIWl4nP6IEt7EkJXA147_OXX2lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97392203803-7k38ho2712ndfh3dta7e8skdc7e77t2s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.amigowebportal"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97392203803:android:dbbbab0e9ffca4d9d080be",
+        "android_client_info": {
+          "package_name": "com.koreandating.amigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97392203803-74p5b9fgmtcstir89r9n7giuemuphkhj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.koreandating.amigo",
+            "certificate_hash": "3beab10e2b41b1edec292b0c8c06dfab1e6a011b"
+          }
+        },
+        {
+          "client_id": "97392203803-ejc7p4n5nlcni3upd6bkrs4b756h9guj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.koreandating.amigo",
+            "certificate_hash": "a3b82a288573e2498e686134ad92306845b36a65"
+          }
+        },
+        {
+          "client_id": "97392203803-p3nebmcfhqldp8i237bn72ks9ck4m5i5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.koreandating.amigo",
+            "certificate_hash": "4b239b3eb1613ac02f1f9827571f7419a4d21e98"
+          }
+        },
+        {
+          "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD9X23aIWl4nP6IEt7EkJXA147_OXX2lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97392203803-kh0bvudobiba2k31aibjq2fe30smfo91.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97392203803-7k38ho2712ndfh3dta7e8skdc7e77t2s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.amigowebportal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

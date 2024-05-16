@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>97392203803-5jv09hc0gmioo16h2tgmvm0bki7fgjbd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.97392203803-5jv09hc0gmioo16h2tgmvm0bki7fgjbd</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>97392203803-3r6ka79mmug1j2fub0vaehpb994r8e0g.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAYeL1Pfa93WnHahBC_JVXUv-FDT2aB00Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>97392203803</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.shoesly</string>
+	<key>PROJECT_ID</key>
+	<string>kbuddy-a6986</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kbuddy-a6986.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:97392203803:ios:aa754958fa71841fd080be</string>
+</dict>
+</plist>
