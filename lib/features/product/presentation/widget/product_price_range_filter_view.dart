@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shoesly/core/constant/app_colors.dart';
 import 'package:shoesly/features/product/data/model/price_range.dart';
 
-class ProductPriceRangeFilterView extends StatefulWidget {
+class ProductPriceRangeFilterView extends StatelessWidget {
   final void Function(PriceRange range) onChanged;
   final PriceRange? priceRange;
   const ProductPriceRangeFilterView({
@@ -12,23 +12,8 @@ class ProductPriceRangeFilterView extends StatefulWidget {
   });
 
   @override
-  State<ProductPriceRangeFilterView> createState() =>
-      _ProductPriceRangeFilterViewState();
-}
-
-class _ProductPriceRangeFilterViewState
-    extends State<ProductPriceRangeFilterView> {
-  late RangeValues values;
-  @override
-  void initState() {
-    super.initState();
-
-    values = RangeValues(
-        widget.priceRange?.min ?? 10, widget.priceRange?.max ?? 1750);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final values = RangeValues(priceRange?.min ?? 10, priceRange?.max ?? 1750);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -48,11 +33,7 @@ class _ProductPriceRangeFilterViewState
             ),
             values: values,
             onChanged: (range) {
-              setState(() {
-                values = range;
-              });
-
-              widget.onChanged(PriceRange(min: range.start, max: range.end));
+              onChanged(PriceRange(min: range.start, max: range.end));
             }),
         // Row(
         //     children: [0, 200, 750, 1750]

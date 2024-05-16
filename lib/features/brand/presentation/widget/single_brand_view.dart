@@ -83,7 +83,7 @@ class SingleBrandView extends StatelessWidget {
           style: Theme.of(context).textTheme.titleMedium,
         ),
         Text(
-          "10 Items",
+          "${brand.totalProducts} Items",
           style: Theme.of(context).textTheme.titleSmall,
         )
       ],

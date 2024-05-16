@@ -36,10 +36,7 @@ class _BrandListViewState extends State<BrandListView> {
                   itemBuilder: (context, index) {
                     if (index == 0) {
                       return SingleBrandView(
-                        brand: Brand(
-                          name: "All",
-                          logo: "",
-                        ),
+                        brand: Brand(name: "All", logo: "", totalProducts: 0),
                         selected: selectedBrand == null,
                         onPressed: () {
                           setState(() {

@@ -12,4 +12,14 @@ class ProductFilter {
   ProductColor? color;
 
   ProductFilter({this.brand, this.range, this.sortBy, this.gender, this.color});
+
+  int get appliedCount {
+    int count = 0;
+    for (var field in [brand, range, sortBy, gender, color]) {
+      if (field != null) {
+        count++;
+      }
+    }
+    return count;
+  }
 }

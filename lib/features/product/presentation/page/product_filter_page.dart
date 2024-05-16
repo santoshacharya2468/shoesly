@@ -83,8 +83,13 @@ class _ProductFilterPageState extends State<ProductFilterPage> {
                 children: [
                   Expanded(
                     child: AppOutlinedButton(
-                      child: const Center(child: Text("RESET")),
-                      onPressed: () {},
+                      child:
+                          Center(child: Text("RESET(${filter.appliedCount})")),
+                      onPressed: () {
+                        setState(() {
+                          filter = ProductFilter();
+                        });
+                      },
                     ),
                   ),
                   const SizedBox(

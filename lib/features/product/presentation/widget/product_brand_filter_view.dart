@@ -19,12 +19,6 @@ class ProductBrandFilterView extends StatefulWidget {
 
 class _ProductBrandFilterViewState extends State<ProductBrandFilterView> {
   final BrandBloc brandBloc = getIt<BrandBloc>();
-  Brand? selectedBrand;
-  @override
-  void initState() {
-    super.initState();
-    selectedBrand = widget.selectedBrand;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +51,9 @@ class _ProductBrandFilterViewState extends State<ProductBrandFilterView> {
                         return SingleBrandView(
                           brand: brand,
                           type: ViewType.circularType,
-                          selected: selectedBrand == brand,
+                          selected: widget.selectedBrand == brand,
                           onPressed: () {
                             setState(() {
-                              selectedBrand = brand;
                               widget.onSelected(brand);
                             });
                           },

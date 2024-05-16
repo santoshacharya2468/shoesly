@@ -8,10 +8,8 @@ class Brand {
   String? id;
   final String name;
   final String logo;
-  Brand({
-    required this.name,
-    required this.logo,
-  });
+  final int totalProducts;
+  Brand({required this.name, required this.logo, required this.totalProducts});
 
   factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
   factory Brand.fromFirestore(QueryDocumentSnapshot<Map<String, dynamic>> doc) {
