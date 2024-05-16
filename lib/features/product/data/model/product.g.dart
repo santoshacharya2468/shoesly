@@ -16,8 +16,9 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       avgRating: json['avgRating'] as num,
       totalReviews: (json['totalReviews'] as num).toInt(),
       sizes: (json['sizes'] as List<dynamic>).map((e) => e as num).toList(),
-      colors:
-          (json['colors'] as List<dynamic>).map((e) => e as String).toList(),
+      colors: (json['colors'] as List<dynamic>)
+          .map((e) => $enumDecode(_$ProductColorEnumMap, e))
+          .toList(),
       gender: $enumDecode(_$GenderEnumMap, json['gender']),
     )..createdAt = json['createdAt'] == null
         ? null
@@ -33,10 +34,16 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'avgRating': instance.avgRating,
       'totalReviews': instance.totalReviews,
       'sizes': instance.sizes,
-      'colors': instance.colors,
+      'colors': instance.colors.map((e) => _$ProductColorEnumMap[e]!).toList(),
       'gender': _$GenderEnumMap[instance.gender]!,
       'createdAt': instance.createdAt?.toIso8601String(),
     };
+
+const _$ProductColorEnumMap = {
+  ProductColor.black: 'black',
+  ProductColor.white: 'white',
+  ProductColor.red: 'red',
+};
 
 const _$GenderEnumMap = {
   Gender.men: 'men',

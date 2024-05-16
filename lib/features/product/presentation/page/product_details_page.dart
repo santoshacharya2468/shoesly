@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/core/widget/app_card.dart';
 import 'package:shoesly/core/widget/app_netork_image.dart';
 import 'package:shoesly/core/widget/base_view.dart';
@@ -21,7 +22,7 @@ class ProductDetailsPage extends StatefulWidget {
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   num? selectedSize;
-  String? selectedColor;
+  ProductColor? selectedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                           selectedColor = color;
                         });
                       },
-                      colors: const [Colors.white, Colors.black, Colors.red],
+                      colors: product.colors,
                     ),
                   )
                 ],

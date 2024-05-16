@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:shoesly/core/decorator/json_decorator.dart';
+import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/core/enum/product_gender.dart';
 import 'package:shoesly/features/brand/data/model/brand.dart';
 part "product.g.dart";
@@ -17,7 +18,7 @@ class Product {
   final num avgRating;
   final int totalReviews;
   final List<num> sizes;
-  final List<String> colors;
+  final List<ProductColor> colors;
   final Gender gender;
   DateTime? createdAt;
 

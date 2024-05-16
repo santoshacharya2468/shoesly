@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shoesly/core/constant/app_colors.dart';
+import 'package:shoesly/core/enum/product_color.dart';
 
 class ProductColorPicker extends StatelessWidget {
-  final List<Color> colors;
-  final String? selectedColor;
-  final void Function(String code) onColorSelected;
+  final List<ProductColor> colors;
+  final ProductColor? selectedColor;
+  final void Function(ProductColor code) onColorSelected;
   const ProductColorPicker(
       {super.key,
       required this.colors,
@@ -29,10 +30,9 @@ class ProductColorPicker extends StatelessWidget {
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         children: colors.map((e) {
-          var colorCode = e.value.toRadixString(16);
           return InkWell(
             onTap: () {
-              onColorSelected(colorCode);
+              onColorSelected(e);
             },
             child: Padding(
               padding: const EdgeInsets.all(2.0),
@@ -43,20 +43,19 @@ class ProductColorPicker extends StatelessWidget {
                     height: 20,
                     width: 20,
                     decoration: BoxDecoration(
-                        color: e,
+                        color: e.value,
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: AppColors.borderColor,
                           width: 1,
                         )),
                   ),
-                  if (selectedColor == colorCode)
+                  if (selectedColor == e)
                     Icon(
                       Icons.check,
                       size: 13,
-                      color: colorCode == Colors.white.value.toRadixString(16)
-                          ? Colors.black
-                          : Colors.white,
+                      color:
+                          e.value == Colors.white ? Colors.black : Colors.white,
                     )
                 ],
               ),

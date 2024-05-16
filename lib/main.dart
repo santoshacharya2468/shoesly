@@ -9,6 +9,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await configureDependencies();
-////  await getIt<DatabaseSeeder>().seedReviews();
+  // await getIt<DatabaseSeeder>().seedReviews();
   runApp(const AppStarter());
 }

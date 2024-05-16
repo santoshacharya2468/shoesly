@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shoesly/core/constant/firestore_collection.dart';
+import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/core/enum/product_gender.dart';
 import 'package:shoesly/core/model/application_user.dart';
 import 'package:shoesly/features/brand/data/repository/i_brand_repository.dart';
@@ -18,6 +19,7 @@ class DatabaseSeeder {
 
   Future<void> seed() async {
     await seedProducts();
+    await seedReviews();
   }
 
   Future<void> seedProducts() async {
@@ -40,7 +42,7 @@ class DatabaseSeeder {
           avgRating: 4.5,
           totalReviews: 10,
           sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [],
+          colors: [ProductColor.white, ProductColor.red],
           gender: Gender.unisex),
 
       Product(
@@ -55,7 +57,7 @@ class DatabaseSeeder {
           avgRating: 4.5,
           totalReviews: 10,
           sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [],
+          colors: [ProductColor.white, ProductColor.black],
           gender: Gender.unisex),
       Product(
           id: "",
@@ -69,7 +71,7 @@ class DatabaseSeeder {
           avgRating: 4.5,
           totalReviews: 10,
           sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [],
+          colors: [ProductColor.white, ProductColor.black, ProductColor.red],
           gender: Gender.unisex),
       Product(
           id: "",
@@ -83,7 +85,7 @@ class DatabaseSeeder {
           avgRating: 4.5,
           totalReviews: 10,
           sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [],
+          colors: [ProductColor.black, ProductColor.red],
           gender: Gender.unisex),
 
       //
@@ -100,7 +102,10 @@ class DatabaseSeeder {
           avgRating: 4.5,
           totalReviews: 10,
           sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [],
+          colors: [
+            ProductColor.white,
+            ProductColor.black,
+          ],
           gender: Gender.unisex),
       Product(
           id: "",
@@ -114,7 +119,7 @@ class DatabaseSeeder {
           avgRating: 4.5,
           totalReviews: 10,
           sizes: [39, 39.5, 40, 40.5, 41],
-          colors: [],
+          colors: [ProductColor.white, ProductColor.black, ProductColor.red],
           gender: Gender.unisex),
     ];
 
