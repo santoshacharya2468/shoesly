@@ -5,7 +5,7 @@ class BaseView extends StatelessWidget {
   final TextStyle? titleStyle;
   final List<Widget>? actions;
   final Widget body;
-  final FloatingActionButton? floatingActionButton;
+  final Widget? floatingActionButton;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   const BaseView(
       {super.key,

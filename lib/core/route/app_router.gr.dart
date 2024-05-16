@@ -37,6 +37,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ProductFilterRoute.name: (routeData) {
+      final args = routeData.argsAs<ProductFilterRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProductFilterPage(
+          key: args.key,
+          filter: args.filter,
+        ),
+      );
+    },
   };
 }
 
@@ -103,5 +113,43 @@ class ProductDetailsRouteArgs {
   @override
   String toString() {
     return 'ProductDetailsRouteArgs{key: $key, product: $product}';
+  }
+}
+
+/// generated route for
+/// [ProductFilterPage]
+class ProductFilterRoute extends PageRouteInfo<ProductFilterRouteArgs> {
+  ProductFilterRoute({
+    Key? key,
+    required ProductFilter? filter,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ProductFilterRoute.name,
+          args: ProductFilterRouteArgs(
+            key: key,
+            filter: filter,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProductFilterRoute';
+
+  static const PageInfo<ProductFilterRouteArgs> page =
+      PageInfo<ProductFilterRouteArgs>(name);
+}
+
+class ProductFilterRouteArgs {
+  const ProductFilterRouteArgs({
+    this.key,
+    required this.filter,
+  });
+
+  final Key? key;
+
+  final ProductFilter? filter;
+
+  @override
+  String toString() {
+    return 'ProductFilterRouteArgs{key: $key, filter: $filter}';
   }
 }

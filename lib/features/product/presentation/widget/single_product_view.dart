@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shoesly/core/route/app_router.dart';
 import 'package:shoesly/core/widget/app_card.dart';
 import 'package:shoesly/core/widget/app_netork_image.dart';
+import 'package:shoesly/core/widget/colum_with_padding.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 
 class SingleProductView extends StatelessWidget {
@@ -49,7 +50,8 @@ class SingleProductView extends StatelessWidget {
               ),
             ),
           ),
-          Column(
+          ColumnEachChildPadding(
+            padding: const EdgeInsets.only(top: 04),
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(

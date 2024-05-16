@@ -30,6 +30,7 @@ class _AppStarterState extends State<AppStarter> {
               themeMode: ThemeMode.light,
               theme: ThemeData.dark().copyWith(
                   //primaryColor: const Color(0xffF97316),
+                  cardColor: Colors.grey[200],
                   textTheme: const TextTheme(
                       bodyMedium: TextStyle(fontSize: 14, color: Colors.black),
                       bodyLarge: TextStyle(
@@ -47,6 +48,11 @@ class _AppStarterState extends State<AppStarter> {
                           fontWeight: FontWeight.w600)),
                   scaffoldBackgroundColor: Colors.white,
                   appBarTheme: const AppBarTheme(
+                      centerTitle: true,
+                      titleTextStyle: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
                       iconTheme: IconThemeData(color: Colors.black),
                       color: Color(0xff1E1E1E),
                       elevation: 0)),

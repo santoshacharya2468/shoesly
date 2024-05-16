@@ -7,6 +7,7 @@ import 'package:shoesly/features/brand/presentation/widget/brand_list_view.dart'
 import 'package:shoesly/features/cart/presentation/widget/cart_icon_button.dart';
 import 'package:shoesly/features/product/data/model/product_filter.dart';
 import 'package:shoesly/features/product/presentation/bloc/product_bloc.dart';
+import 'package:shoesly/features/product/presentation/widget/filter_button.dart';
 import 'package:shoesly/features/product/presentation/widget/product_listing_view.dart';
 
 @RoutePage()
@@ -34,6 +35,9 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
   Widget build(BuildContext context) {
     return BaseView(
         title: "Discover",
+        floatingActionButton: FilterButton(
+          appliedFilter: filter,
+        ),
         titleStyle: const TextStyle(
             fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
         actions: const [CartIconButton()],
@@ -43,7 +47,7 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
             children: [
               BrandListView(
                 onSelected: (brand) {
-                  filter = ProductFilter(brand: brand?.id);
+                  filter = ProductFilter(brand: brand!);
                   loadProducts();
                 },
               ),

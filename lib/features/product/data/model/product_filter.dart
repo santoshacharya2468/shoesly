@@ -1,18 +1,15 @@
-import 'package:shoesly/features/product/data/model/product.dart';
+import 'package:shoesly/core/enum/product_color.dart';
+import 'package:shoesly/core/enum/product_gender.dart';
+import 'package:shoesly/core/enum/product_sort.dart';
+import 'package:shoesly/features/brand/data/model/brand.dart';
+import 'package:shoesly/features/product/data/model/price_range.dart';
 
 class ProductFilter {
-  final String? brand;
-  final num? minPrice;
-  final num? maxPrice;
-  final List<String>? sizes;
-  final List<String>? colors;
-  final Gender? gender;
+  Brand? brand;
+  PriceRange? range;
+  ProductSort? sortBy;
+  Gender? gender;
+  ProductColor? color;
 
-  ProductFilter(
-      {this.brand,
-      this.minPrice,
-      this.maxPrice,
-      this.sizes,
-      this.colors,
-      this.gender});
+  ProductFilter({this.brand, this.range, this.sortBy, this.gender, this.color});
 }

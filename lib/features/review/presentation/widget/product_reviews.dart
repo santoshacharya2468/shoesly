@@ -29,6 +29,7 @@ class _ProductReviewsState extends State<ProductReviews> {
               error: errorView,
               loaded: (reviews) {
                 return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Reviews",
                         style: Theme.of(context).textTheme.titleLarge),
@@ -37,6 +38,8 @@ class _ProductReviewsState extends State<ProductReviews> {
                     ),
                     ListView.builder(
                       shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: reviews.length,
                       itemBuilder: (context, index) {
                         final review = reviews[index];
                         return SingleReviewView(review: review);

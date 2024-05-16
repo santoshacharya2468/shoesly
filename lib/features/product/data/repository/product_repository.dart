@@ -20,7 +20,7 @@ class ProductRepository implements IProductRepository {
         .collection(FirestoreCollection.products)
         .orderBy("createdAt", descending: true);
     if (filter.brand != null) {
-      query = query.where("brand.id", isEqualTo: filter.brand);
+      query = query.where("brand.id", isEqualTo: filter.brand!.id);
     }
     final response = await query.get();
     return response.toApiResponseList(fromDoc: Product.fromFirestore);

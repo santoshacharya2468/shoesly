@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shoesly/core/constant/firestore_collection.dart';
+import 'package:shoesly/core/enum/product_gender.dart';
 import 'package:shoesly/core/model/application_user.dart';
 import 'package:shoesly/features/brand/data/repository/i_brand_repository.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
@@ -147,11 +146,7 @@ class DatabaseSeeder {
             content: "Perfect for keeping your feet dry and warm in damp");
         final json = review.toJson();
         json["createdAt"] = review.createdAt.toIso8601String();
-        await db
-            .collection(FirestoreCollection.productReviews)
-            .doc(product.id)
-            .collection("reviews")
-            .add(json);
+        await db.collection(FirestoreCollection.productReviews).add(json);
       }
     }
   }

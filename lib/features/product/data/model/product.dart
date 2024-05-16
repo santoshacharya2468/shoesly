@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:shoesly/core/decorator/json_decorator.dart';
+import 'package:shoesly/core/enum/product_gender.dart';
 import 'package:shoesly/features/brand/data/model/brand.dart';
 part "product.g.dart";
 
@@ -44,5 +45,3 @@ class Product {
     return p;
   }
 }
-
-enum Gender { men, women, unisex }
