@@ -44,7 +44,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       colorFilter: ColorFilter.mode(
                         selectedColor == null
                             ? Colors.white
-                            : Color(int.parse("0x$selectedColor")),
+                            : selectedColor!.value,
                         BlendMode.hue,
                       ),
                       child: Hero(

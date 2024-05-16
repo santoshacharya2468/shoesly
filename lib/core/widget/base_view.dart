@@ -6,6 +6,7 @@ class BaseView extends StatelessWidget {
   final List<Widget>? actions;
   final Widget body;
   final Widget? floatingActionButton;
+  final bool? centerTitle;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   const BaseView(
       {super.key,
@@ -14,7 +15,8 @@ class BaseView extends StatelessWidget {
       this.actions,
       required this.body,
       this.floatingActionButton,
-      this.floatingActionButtonLocation});
+      this.floatingActionButtonLocation,
+      this.centerTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class BaseView extends StatelessWidget {
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12), child: body),
       appBar: AppBar(
+        centerTitle: centerTitle,
         title: Text(
           title,
           style: titleStyle,

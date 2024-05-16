@@ -106,7 +106,9 @@ class _ProductFilterPageState extends State<ProductFilterPage> {
                             .bodyMedium
                             ?.copyWith(color: Colors.white),
                       )),
-                      onPressed: () {},
+                      onPressed: () {
+                        context.router.maybePop(filter);
+                      },
                     ),
                   ),
                 ],

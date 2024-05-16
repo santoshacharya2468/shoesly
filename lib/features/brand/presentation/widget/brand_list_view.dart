@@ -9,7 +9,9 @@ import 'package:shoesly/features/brand/presentation/widget/single_brand_view.dar
 
 class BrandListView extends StatefulWidget {
   final void Function(Brand? brand) onSelected;
-  const BrandListView({super.key, required this.onSelected});
+  final Brand? selectedBrand;
+  const BrandListView(
+      {super.key, required this.onSelected, required this.selectedBrand});
 
   @override
   State<BrandListView> createState() => _BrandListViewState();
@@ -17,7 +19,6 @@ class BrandListView extends StatefulWidget {
 
 class _BrandListViewState extends State<BrandListView> {
   final BrandBloc brandBloc = getIt<BrandBloc>();
-  Brand? selectedBrand;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -37,10 +38,9 @@ class _BrandListViewState extends State<BrandListView> {
                     if (index == 0) {
                       return SingleBrandView(
                         brand: Brand(name: "All", logo: "", totalProducts: 0),
-                        selected: selectedBrand == null,
+                        selected: widget.selectedBrand == null,
                         onPressed: () {
                           setState(() {
-                            selectedBrand = null;
                             widget.onSelected(null);
                           });
                         },
@@ -50,10 +50,9 @@ class _BrandListViewState extends State<BrandListView> {
                     final brand = brands[index];
                     return SingleBrandView(
                       brand: brand,
-                      selected: selectedBrand == brand,
+                      selected: widget.selectedBrand?.id == brand.id,
                       onPressed: () {
                         setState(() {
-                          selectedBrand = brand;
                           widget.onSelected(brand);
                         });
                       },

@@ -35,8 +35,14 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
   Widget build(BuildContext context) {
     return BaseView(
         title: "Discover",
+        centerTitle: false,
         floatingActionButton: FilterButton(
           appliedFilter: filter,
+          onFilterChanged: (filter) {
+            this.filter = filter;
+            setState(() {});
+            loadProducts();
+          },
         ),
         titleStyle: const TextStyle(
             fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
@@ -46,8 +52,10 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
           child: Column(
             children: [
               BrandListView(
+                selectedBrand: filter.brand,
                 onSelected: (brand) {
-                  filter = ProductFilter(brand: brand!);
+                  filter.brand = brand;
+                  setState(() {});
                   loadProducts();
                 },
               ),

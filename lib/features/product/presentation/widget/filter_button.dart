@@ -5,15 +5,20 @@ import 'package:shoesly/features/product/data/model/product_filter.dart';
 
 class FilterButton extends StatelessWidget {
   final ProductFilter appliedFilter;
-  const FilterButton({super.key, required this.appliedFilter});
+  final void Function(ProductFilter filter) onFilterChanged;
+  const FilterButton(
+      {super.key, required this.appliedFilter, required this.onFilterChanged});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        context.router.push(ProductFilterRoute(
+      onTap: () async {
+        final filter = await context.router.push(ProductFilterRoute(
           filter: appliedFilter,
         ));
+        if (filter is ProductFilter) {
+          onFilterChanged(filter);
+        }
       },
       child: Container(
         height: 40,
