@@ -655,6 +655,7 @@ mixin _$CartState {
     required TResult Function(List<CartItem> cartItems) getCartSuccess,
     required TResult Function(String message) failure,
     required TResult Function() loading,
+    required TResult Function() addToCartState,
     required TResult Function() cartInitial,
     required TResult Function() addToCartSuccess,
   }) =>
@@ -664,6 +665,7 @@ mixin _$CartState {
     TResult? Function(List<CartItem> cartItems)? getCartSuccess,
     TResult? Function(String message)? failure,
     TResult? Function()? loading,
+    TResult? Function()? addToCartState,
     TResult? Function()? cartInitial,
     TResult? Function()? addToCartSuccess,
   }) =>
@@ -673,6 +675,7 @@ mixin _$CartState {
     TResult Function(List<CartItem> cartItems)? getCartSuccess,
     TResult Function(String message)? failure,
     TResult Function()? loading,
+    TResult Function()? addToCartState,
     TResult Function()? cartInitial,
     TResult Function()? addToCartSuccess,
     required TResult orElse(),
@@ -683,6 +686,7 @@ mixin _$CartState {
     required TResult Function(_CartState value) getCartSuccess,
     required TResult Function(_CartStateFailure value) failure,
     required TResult Function(_CartStateLoading value) loading,
+    required TResult Function(_CartStateAddingLoading value) addToCartState,
     required TResult Function(_CartStateInitial value) cartInitial,
     required TResult Function(_CartStateAddToCartSuccess value)
         addToCartSuccess,
@@ -693,6 +697,7 @@ mixin _$CartState {
     TResult? Function(_CartState value)? getCartSuccess,
     TResult? Function(_CartStateFailure value)? failure,
     TResult? Function(_CartStateLoading value)? loading,
+    TResult? Function(_CartStateAddingLoading value)? addToCartState,
     TResult? Function(_CartStateInitial value)? cartInitial,
     TResult? Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
   }) =>
@@ -702,6 +707,7 @@ mixin _$CartState {
     TResult Function(_CartState value)? getCartSuccess,
     TResult Function(_CartStateFailure value)? failure,
     TResult Function(_CartStateLoading value)? loading,
+    TResult Function(_CartStateAddingLoading value)? addToCartState,
     TResult Function(_CartStateInitial value)? cartInitial,
     TResult Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),
@@ -801,6 +807,7 @@ class _$CartStateImpl implements _CartState {
     required TResult Function(List<CartItem> cartItems) getCartSuccess,
     required TResult Function(String message) failure,
     required TResult Function() loading,
+    required TResult Function() addToCartState,
     required TResult Function() cartInitial,
     required TResult Function() addToCartSuccess,
   }) {
@@ -813,6 +820,7 @@ class _$CartStateImpl implements _CartState {
     TResult? Function(List<CartItem> cartItems)? getCartSuccess,
     TResult? Function(String message)? failure,
     TResult? Function()? loading,
+    TResult? Function()? addToCartState,
     TResult? Function()? cartInitial,
     TResult? Function()? addToCartSuccess,
   }) {
@@ -825,6 +833,7 @@ class _$CartStateImpl implements _CartState {
     TResult Function(List<CartItem> cartItems)? getCartSuccess,
     TResult Function(String message)? failure,
     TResult Function()? loading,
+    TResult Function()? addToCartState,
     TResult Function()? cartInitial,
     TResult Function()? addToCartSuccess,
     required TResult orElse(),
@@ -841,6 +850,7 @@ class _$CartStateImpl implements _CartState {
     required TResult Function(_CartState value) getCartSuccess,
     required TResult Function(_CartStateFailure value) failure,
     required TResult Function(_CartStateLoading value) loading,
+    required TResult Function(_CartStateAddingLoading value) addToCartState,
     required TResult Function(_CartStateInitial value) cartInitial,
     required TResult Function(_CartStateAddToCartSuccess value)
         addToCartSuccess,
@@ -854,6 +864,7 @@ class _$CartStateImpl implements _CartState {
     TResult? Function(_CartState value)? getCartSuccess,
     TResult? Function(_CartStateFailure value)? failure,
     TResult? Function(_CartStateLoading value)? loading,
+    TResult? Function(_CartStateAddingLoading value)? addToCartState,
     TResult? Function(_CartStateInitial value)? cartInitial,
     TResult? Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
   }) {
@@ -866,6 +877,7 @@ class _$CartStateImpl implements _CartState {
     TResult Function(_CartState value)? getCartSuccess,
     TResult Function(_CartStateFailure value)? failure,
     TResult Function(_CartStateLoading value)? loading,
+    TResult Function(_CartStateAddingLoading value)? addToCartState,
     TResult Function(_CartStateInitial value)? cartInitial,
     TResult Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),
@@ -955,6 +967,7 @@ class _$CartStateFailureImpl implements _CartStateFailure {
     required TResult Function(List<CartItem> cartItems) getCartSuccess,
     required TResult Function(String message) failure,
     required TResult Function() loading,
+    required TResult Function() addToCartState,
     required TResult Function() cartInitial,
     required TResult Function() addToCartSuccess,
   }) {
@@ -967,6 +980,7 @@ class _$CartStateFailureImpl implements _CartStateFailure {
     TResult? Function(List<CartItem> cartItems)? getCartSuccess,
     TResult? Function(String message)? failure,
     TResult? Function()? loading,
+    TResult? Function()? addToCartState,
     TResult? Function()? cartInitial,
     TResult? Function()? addToCartSuccess,
   }) {
@@ -979,6 +993,7 @@ class _$CartStateFailureImpl implements _CartStateFailure {
     TResult Function(List<CartItem> cartItems)? getCartSuccess,
     TResult Function(String message)? failure,
     TResult Function()? loading,
+    TResult Function()? addToCartState,
     TResult Function()? cartInitial,
     TResult Function()? addToCartSuccess,
     required TResult orElse(),
@@ -995,6 +1010,7 @@ class _$CartStateFailureImpl implements _CartStateFailure {
     required TResult Function(_CartState value) getCartSuccess,
     required TResult Function(_CartStateFailure value) failure,
     required TResult Function(_CartStateLoading value) loading,
+    required TResult Function(_CartStateAddingLoading value) addToCartState,
     required TResult Function(_CartStateInitial value) cartInitial,
     required TResult Function(_CartStateAddToCartSuccess value)
         addToCartSuccess,
@@ -1008,6 +1024,7 @@ class _$CartStateFailureImpl implements _CartStateFailure {
     TResult? Function(_CartState value)? getCartSuccess,
     TResult? Function(_CartStateFailure value)? failure,
     TResult? Function(_CartStateLoading value)? loading,
+    TResult? Function(_CartStateAddingLoading value)? addToCartState,
     TResult? Function(_CartStateInitial value)? cartInitial,
     TResult? Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
   }) {
@@ -1020,6 +1037,7 @@ class _$CartStateFailureImpl implements _CartStateFailure {
     TResult Function(_CartState value)? getCartSuccess,
     TResult Function(_CartStateFailure value)? failure,
     TResult Function(_CartStateLoading value)? loading,
+    TResult Function(_CartStateAddingLoading value)? addToCartState,
     TResult Function(_CartStateInitial value)? cartInitial,
     TResult Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),
@@ -1082,6 +1100,7 @@ class _$CartStateLoadingImpl implements _CartStateLoading {
     required TResult Function(List<CartItem> cartItems) getCartSuccess,
     required TResult Function(String message) failure,
     required TResult Function() loading,
+    required TResult Function() addToCartState,
     required TResult Function() cartInitial,
     required TResult Function() addToCartSuccess,
   }) {
@@ -1094,6 +1113,7 @@ class _$CartStateLoadingImpl implements _CartStateLoading {
     TResult? Function(List<CartItem> cartItems)? getCartSuccess,
     TResult? Function(String message)? failure,
     TResult? Function()? loading,
+    TResult? Function()? addToCartState,
     TResult? Function()? cartInitial,
     TResult? Function()? addToCartSuccess,
   }) {
@@ -1106,6 +1126,7 @@ class _$CartStateLoadingImpl implements _CartStateLoading {
     TResult Function(List<CartItem> cartItems)? getCartSuccess,
     TResult Function(String message)? failure,
     TResult Function()? loading,
+    TResult Function()? addToCartState,
     TResult Function()? cartInitial,
     TResult Function()? addToCartSuccess,
     required TResult orElse(),
@@ -1122,6 +1143,7 @@ class _$CartStateLoadingImpl implements _CartStateLoading {
     required TResult Function(_CartState value) getCartSuccess,
     required TResult Function(_CartStateFailure value) failure,
     required TResult Function(_CartStateLoading value) loading,
+    required TResult Function(_CartStateAddingLoading value) addToCartState,
     required TResult Function(_CartStateInitial value) cartInitial,
     required TResult Function(_CartStateAddToCartSuccess value)
         addToCartSuccess,
@@ -1135,6 +1157,7 @@ class _$CartStateLoadingImpl implements _CartStateLoading {
     TResult? Function(_CartState value)? getCartSuccess,
     TResult? Function(_CartStateFailure value)? failure,
     TResult? Function(_CartStateLoading value)? loading,
+    TResult? Function(_CartStateAddingLoading value)? addToCartState,
     TResult? Function(_CartStateInitial value)? cartInitial,
     TResult? Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
   }) {
@@ -1147,6 +1170,7 @@ class _$CartStateLoadingImpl implements _CartStateLoading {
     TResult Function(_CartState value)? getCartSuccess,
     TResult Function(_CartStateFailure value)? failure,
     TResult Function(_CartStateLoading value)? loading,
+    TResult Function(_CartStateAddingLoading value)? addToCartState,
     TResult Function(_CartStateInitial value)? cartInitial,
     TResult Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),
@@ -1160,6 +1184,136 @@ class _$CartStateLoadingImpl implements _CartStateLoading {
 
 abstract class _CartStateLoading implements CartState {
   const factory _CartStateLoading() = _$CartStateLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$CartStateAddingLoadingImplCopyWith<$Res> {
+  factory _$$CartStateAddingLoadingImplCopyWith(
+          _$CartStateAddingLoadingImpl value,
+          $Res Function(_$CartStateAddingLoadingImpl) then) =
+      __$$CartStateAddingLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CartStateAddingLoadingImplCopyWithImpl<$Res>
+    extends _$CartStateCopyWithImpl<$Res, _$CartStateAddingLoadingImpl>
+    implements _$$CartStateAddingLoadingImplCopyWith<$Res> {
+  __$$CartStateAddingLoadingImplCopyWithImpl(
+      _$CartStateAddingLoadingImpl _value,
+      $Res Function(_$CartStateAddingLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CartStateAddingLoadingImpl implements _CartStateAddingLoading {
+  const _$CartStateAddingLoadingImpl();
+
+  @override
+  String toString() {
+    return 'CartState.addToCartState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CartStateAddingLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<CartItem> cartItems) getCartSuccess,
+    required TResult Function(String message) failure,
+    required TResult Function() loading,
+    required TResult Function() addToCartState,
+    required TResult Function() cartInitial,
+    required TResult Function() addToCartSuccess,
+  }) {
+    return addToCartState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<CartItem> cartItems)? getCartSuccess,
+    TResult? Function(String message)? failure,
+    TResult? Function()? loading,
+    TResult? Function()? addToCartState,
+    TResult? Function()? cartInitial,
+    TResult? Function()? addToCartSuccess,
+  }) {
+    return addToCartState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<CartItem> cartItems)? getCartSuccess,
+    TResult Function(String message)? failure,
+    TResult Function()? loading,
+    TResult Function()? addToCartState,
+    TResult Function()? cartInitial,
+    TResult Function()? addToCartSuccess,
+    required TResult orElse(),
+  }) {
+    if (addToCartState != null) {
+      return addToCartState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CartState value) getCartSuccess,
+    required TResult Function(_CartStateFailure value) failure,
+    required TResult Function(_CartStateLoading value) loading,
+    required TResult Function(_CartStateAddingLoading value) addToCartState,
+    required TResult Function(_CartStateInitial value) cartInitial,
+    required TResult Function(_CartStateAddToCartSuccess value)
+        addToCartSuccess,
+  }) {
+    return addToCartState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CartState value)? getCartSuccess,
+    TResult? Function(_CartStateFailure value)? failure,
+    TResult? Function(_CartStateLoading value)? loading,
+    TResult? Function(_CartStateAddingLoading value)? addToCartState,
+    TResult? Function(_CartStateInitial value)? cartInitial,
+    TResult? Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
+  }) {
+    return addToCartState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CartState value)? getCartSuccess,
+    TResult Function(_CartStateFailure value)? failure,
+    TResult Function(_CartStateLoading value)? loading,
+    TResult Function(_CartStateAddingLoading value)? addToCartState,
+    TResult Function(_CartStateInitial value)? cartInitial,
+    TResult Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
+    required TResult orElse(),
+  }) {
+    if (addToCartState != null) {
+      return addToCartState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CartStateAddingLoading implements CartState {
+  const factory _CartStateAddingLoading() = _$CartStateAddingLoadingImpl;
 }
 
 /// @nodoc
@@ -1203,6 +1357,7 @@ class _$CartStateInitialImpl implements _CartStateInitial {
     required TResult Function(List<CartItem> cartItems) getCartSuccess,
     required TResult Function(String message) failure,
     required TResult Function() loading,
+    required TResult Function() addToCartState,
     required TResult Function() cartInitial,
     required TResult Function() addToCartSuccess,
   }) {
@@ -1215,6 +1370,7 @@ class _$CartStateInitialImpl implements _CartStateInitial {
     TResult? Function(List<CartItem> cartItems)? getCartSuccess,
     TResult? Function(String message)? failure,
     TResult? Function()? loading,
+    TResult? Function()? addToCartState,
     TResult? Function()? cartInitial,
     TResult? Function()? addToCartSuccess,
   }) {
@@ -1227,6 +1383,7 @@ class _$CartStateInitialImpl implements _CartStateInitial {
     TResult Function(List<CartItem> cartItems)? getCartSuccess,
     TResult Function(String message)? failure,
     TResult Function()? loading,
+    TResult Function()? addToCartState,
     TResult Function()? cartInitial,
     TResult Function()? addToCartSuccess,
     required TResult orElse(),
@@ -1243,6 +1400,7 @@ class _$CartStateInitialImpl implements _CartStateInitial {
     required TResult Function(_CartState value) getCartSuccess,
     required TResult Function(_CartStateFailure value) failure,
     required TResult Function(_CartStateLoading value) loading,
+    required TResult Function(_CartStateAddingLoading value) addToCartState,
     required TResult Function(_CartStateInitial value) cartInitial,
     required TResult Function(_CartStateAddToCartSuccess value)
         addToCartSuccess,
@@ -1256,6 +1414,7 @@ class _$CartStateInitialImpl implements _CartStateInitial {
     TResult? Function(_CartState value)? getCartSuccess,
     TResult? Function(_CartStateFailure value)? failure,
     TResult? Function(_CartStateLoading value)? loading,
+    TResult? Function(_CartStateAddingLoading value)? addToCartState,
     TResult? Function(_CartStateInitial value)? cartInitial,
     TResult? Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
   }) {
@@ -1268,6 +1427,7 @@ class _$CartStateInitialImpl implements _CartStateInitial {
     TResult Function(_CartState value)? getCartSuccess,
     TResult Function(_CartStateFailure value)? failure,
     TResult Function(_CartStateLoading value)? loading,
+    TResult Function(_CartStateAddingLoading value)? addToCartState,
     TResult Function(_CartStateInitial value)? cartInitial,
     TResult Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),
@@ -1327,6 +1487,7 @@ class _$CartStateAddToCartSuccessImpl implements _CartStateAddToCartSuccess {
     required TResult Function(List<CartItem> cartItems) getCartSuccess,
     required TResult Function(String message) failure,
     required TResult Function() loading,
+    required TResult Function() addToCartState,
     required TResult Function() cartInitial,
     required TResult Function() addToCartSuccess,
   }) {
@@ -1339,6 +1500,7 @@ class _$CartStateAddToCartSuccessImpl implements _CartStateAddToCartSuccess {
     TResult? Function(List<CartItem> cartItems)? getCartSuccess,
     TResult? Function(String message)? failure,
     TResult? Function()? loading,
+    TResult? Function()? addToCartState,
     TResult? Function()? cartInitial,
     TResult? Function()? addToCartSuccess,
   }) {
@@ -1351,6 +1513,7 @@ class _$CartStateAddToCartSuccessImpl implements _CartStateAddToCartSuccess {
     TResult Function(List<CartItem> cartItems)? getCartSuccess,
     TResult Function(String message)? failure,
     TResult Function()? loading,
+    TResult Function()? addToCartState,
     TResult Function()? cartInitial,
     TResult Function()? addToCartSuccess,
     required TResult orElse(),
@@ -1367,6 +1530,7 @@ class _$CartStateAddToCartSuccessImpl implements _CartStateAddToCartSuccess {
     required TResult Function(_CartState value) getCartSuccess,
     required TResult Function(_CartStateFailure value) failure,
     required TResult Function(_CartStateLoading value) loading,
+    required TResult Function(_CartStateAddingLoading value) addToCartState,
     required TResult Function(_CartStateInitial value) cartInitial,
     required TResult Function(_CartStateAddToCartSuccess value)
         addToCartSuccess,
@@ -1380,6 +1544,7 @@ class _$CartStateAddToCartSuccessImpl implements _CartStateAddToCartSuccess {
     TResult? Function(_CartState value)? getCartSuccess,
     TResult? Function(_CartStateFailure value)? failure,
     TResult? Function(_CartStateLoading value)? loading,
+    TResult? Function(_CartStateAddingLoading value)? addToCartState,
     TResult? Function(_CartStateInitial value)? cartInitial,
     TResult? Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
   }) {
@@ -1392,6 +1557,7 @@ class _$CartStateAddToCartSuccessImpl implements _CartStateAddToCartSuccess {
     TResult Function(_CartState value)? getCartSuccess,
     TResult Function(_CartStateFailure value)? failure,
     TResult Function(_CartStateLoading value)? loading,
+    TResult Function(_CartStateAddingLoading value)? addToCartState,
     TResult Function(_CartStateInitial value)? cartInitial,
     TResult Function(_CartStateAddToCartSuccess value)? addToCartSuccess,
     required TResult orElse(),

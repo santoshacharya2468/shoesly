@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:shoesly/features/cart/presentation/page/cart_page.dart';
+import 'package:shoesly/features/order/presentation/page/order_summary_page.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 import 'package:shoesly/features/product/data/model/product_filter.dart';
 import 'package:shoesly/features/product/presentation/page/product_dashboard_page.dart';
@@ -19,6 +20,9 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: ProductFilterRoute.page,
+        ),
+        AutoRoute(
+          page: OrderSummaryRoute.page,
         ),
       ];
 }

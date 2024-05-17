@@ -28,6 +28,7 @@ class CartIconButton extends StatelessWidget {
               child:
                   BlocBuilder<CartBloc, CartState>(builder: (context, state) {
                 return state.whenOrNull(getCartSuccess: (carts) {
+                      if (carts.isEmpty) return null;
                       return Container(
                         height: 8,
                         width: 8,

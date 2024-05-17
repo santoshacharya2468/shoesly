@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly/core/di/di_config.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/features/brand/presentation/widget/brand_list_view.dart';
+import 'package:shoesly/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:shoesly/features/cart/presentation/widget/cart_icon_button.dart';
 import 'package:shoesly/features/product/data/model/product_filter.dart';
 import 'package:shoesly/features/product/presentation/bloc/product_bloc.dart';
@@ -29,6 +30,7 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
   void initState() {
     super.initState();
     loadProducts();
+    context.read<CartBloc>().add(const CartEvent.getCart());
   }
 
   @override

@@ -45,7 +45,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         add(const CartEvent.getCart());
       }, addToCart: (request) async {
         request.userId = userId;
-        emit(const CartState.loading());
+        emit(const CartState.addToCartState());
         final response = await cartRepository.addToCart(request);
         final getCartResponse = await cartRepository.getCartItems(userId!);
         if (response) {

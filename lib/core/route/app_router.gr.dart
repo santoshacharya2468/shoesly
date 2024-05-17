@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CartPage(),
       );
     },
+    OrderSummaryRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OrderSummaryPage(),
+      );
+    },
     ProductDashboardRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -60,6 +66,20 @@ class CartRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CartRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OrderSummaryPage]
+class OrderSummaryRoute extends PageRouteInfo<void> {
+  const OrderSummaryRoute({List<PageRouteInfo>? children})
+      : super(
+          OrderSummaryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderSummaryRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

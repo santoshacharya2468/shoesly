@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:shoesly/core/constant/app_colors.dart';
-import 'package:shoesly/core/widget/app_outlined_text_button.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
 import 'package:shoesly/features/cart/presentation/widget/cart_quantity_button.dart';
+import 'package:shoesly/features/cart/presentation/widget/price_total_and_action_button_view.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 
 class AddToCartBottomSheetView extends StatefulWidget {
@@ -91,39 +91,14 @@ class _AddToCartBottomSheetViewState extends State<AddToCartBottomSheetView> {
               ),
             ),
           ),
-          Container(
-            height: 60,
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                  color: Colors.white.withOpacity(0.5),
-                  spreadRadius: 1,
-                  blurRadius: 2,
-                  offset: const Offset(0, 3)), // changes position of shadow
-            ]),
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Row(
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Total Price",
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                    Text(
-                      "\$${widget.product.price * qunatity}",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    )
-                  ],
-                ),
-                const Spacer(),
-                AppOutlinedTextButton(
-                    text: "Add To Cart",
-                    onPressed: () {
-                      context.router.maybePop(qunatity);
-                    })
-              ],
-            ),
-          )
+          PriceTotalAndActionButtonView(
+            buttonText: "Add To Cart",
+            title: "Total Price",
+            subTitle: "\$${widget.product.price * qunatity}",
+            onButtonPressed: () {
+              context.router.maybePop(qunatity);
+            },
+          ),
         ],
       ),
     );

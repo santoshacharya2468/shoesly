@@ -2,10 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
 import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/core/widget/app_netork_image.dart';
-import 'package:shoesly/core/widget/app_outlined_text_button.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
 import 'package:shoesly/features/cart/data/model/add_to_cart_request_model.dart';
@@ -13,6 +11,7 @@ import 'package:shoesly/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:shoesly/features/cart/presentation/widget/add_to_cart_bottom_sheet_view.dart';
 import 'package:shoesly/features/cart/presentation/widget/add_to_cart_success_bottom_sheet_view.dart';
 import 'package:shoesly/features/cart/presentation/widget/cart_icon_button.dart';
+import 'package:shoesly/features/cart/presentation/widget/price_total_and_action_button_view.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 import 'package:shoesly/features/product/presentation/widget/product_color_picker.dart';
 import 'package:shoesly/features/product/presentation/widget/product_size_selector.dart';
@@ -44,76 +43,51 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   context: context,
                   builder: (context) => const AddToCartSuccessBottomSheet());
             },
-            loading: EasyLoading.show,
+            addToCartState: EasyLoading.show,
             failure: EasyLoading.showError);
       },
       child: BaseView(
           title: "",
           actions: const [CartIconButton()],
-          bottomNavigationBar: Container(
-            height: 60,
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                  color: Colors.white.withOpacity(0.5),
-                  spreadRadius: 1,
-                  blurRadius: 2,
-                  offset: const Offset(0, 3)), // changes position of shadow
-            ]),
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Row(
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Total Price",
-                      style: Theme.of(context).textTheme.titleSmall,
+          bottomNavigationBar: PriceTotalAndActionButtonView(
+              buttonText: "Add To Cart",
+              title: "Total Price",
+              subTitle: "\$${product.price * quantity}",
+              onButtonPressed: () async {
+                if (selectedSize == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Please select size"),
                     ),
-                    Text(
-                      "\$${product.price * quantity}",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    )
-                  ],
-                ),
-                const Spacer(),
-                AppOutlinedTextButton(
-                    text: "Add To Cart",
-                    onPressed: () async {
-                      if (selectedSize == null) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("Please select size"),
-                          ),
-                        );
-                        return;
-                      } else if (selectedColor == null) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("Please select color"),
-                          ),
-                        );
-                        return;
-                      }
-                      final count = await showModalBottomSheet(
-                          isScrollControlled: true,
-                          //  constraints: const BoxConstraints(maxHeight: 280),
-                          context: context,
-                          builder: (_) => AddToCartBottomSheetView(
-                                product: product,
-                              ));
+                  );
+                  return;
+                } else if (selectedColor == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Please select color"),
+                    ),
+                  );
+                  return;
+                }
+                final count = await showModalBottomSheet(
+                    isScrollControlled: true,
+                    context: context,
+                    builder: (_) => AddToCartBottomSheetView(
+                          product: product,
+                        ));
 
-                      if (count != null) {
-                        context.read<CartBloc>().add(CartEvent.addToCart(
-                              AddToCartRequestModel(
-                                  product: product,
-                                  quantity: count,
-                                  productColor: selectedColor,
-                                  size: selectedSize),
-                            ));
-                      }
-                    })
-              ],
-            ),
-          ),
+                if (count != null) {
+                  if (mounted) {
+                    context.read<CartBloc>().add(CartEvent.addToCart(
+                          AddToCartRequestModel(
+                              product: product,
+                              quantity: count,
+                              productColor: selectedColor,
+                              size: selectedSize),
+                        ));
+                  }
+                }
+              }),
           body: SingleChildScrollView(
             child: ColumnEachChildPadding(
               padding: const EdgeInsets.only(bottom: 08),
