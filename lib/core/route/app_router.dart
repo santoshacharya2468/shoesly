@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:shoesly/features/cart/data/model/cart_item.dart';
 import 'package:shoesly/features/cart/presentation/page/cart_page.dart';
 import 'package:shoesly/features/order/presentation/page/order_summary_page.dart';
 import 'package:shoesly/features/product/data/model/product.dart';

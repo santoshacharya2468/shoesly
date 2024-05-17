@@ -1,0 +1,26 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
+import 'package:shoesly/core/constant/firestore_collection.dart';
+import 'package:shoesly/core/model/base_response.dart';
+import 'package:shoesly/features/order/data/model/add_order_request.dart';
+import 'package:shoesly/features/order/data/repository/i_order_repository.dart';
+
+@Injectable(as: IOrderRepository)
+class OrderRepository implements IOrderRepository {
+  final FirebaseFirestore db;
+  final FirebaseAuth auth;
+  OrderRepository({required this.db, required this.auth});
+  @override
+  Future<ApiReponse<void>> addOrder({required AddOrderRequest order}) async {
+    final data = order.toJson();
+    data["createdAt"] = FieldValue.serverTimestamp();
+    data["userId"] = auth.currentUser!.uid;
+    await db.collection(FirestoreCollection.orders).add(data);
+
+    //remove item from carts after order placed
+    //this will be done by cloud function
+    return ApiReponse(
+        success: true, message: "Order Placed Successfully", data: null);
+  }
+}

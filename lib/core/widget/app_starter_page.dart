@@ -38,6 +38,7 @@ class _AppStarterState extends State<AppStarter> {
                 theme: ThemeData.dark().copyWith(
                     //primaryColor: const Color(0xffF97316),
                     cardColor: Colors.grey[200],
+                    dividerColor: Colors.grey[200],
                     textTheme: const TextTheme(
                         bodyMedium:
                             TextStyle(fontSize: 14, color: Colors.black),

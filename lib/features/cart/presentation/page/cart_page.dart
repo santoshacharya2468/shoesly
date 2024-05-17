@@ -31,7 +31,7 @@ class _CartPageState extends State<CartPage> {
                     title: "Grand Total",
                     subTitle: "\$ ${carts.total.toStringAsFixed(2)}",
                     onButtonPressed: () {
-                      context.router.push(const OrderSummaryRoute());
+                      context.router.push(OrderSummaryRoute(carts: carts));
                     },
                   );
                 }) ??

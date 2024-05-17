@@ -15,6 +15,14 @@ CartItem _$CartItemFromJson(Map<String, dynamic> json) => CartItem(
       size: (json['size'] as num?)?.toInt(),
     );
 
+Map<String, dynamic> _$CartItemToJson(CartItem instance) => <String, dynamic>{
+      'product': instance.product.toJson(),
+      'size': instance.size,
+      'productColor': _$ProductColorEnumMap[instance.productColor],
+      'userId': instance.userId,
+      'quantity': instance.quantity,
+    };
+
 const _$ProductColorEnumMap = {
   ProductColor.black: 'black',
   ProductColor.white: 'white',

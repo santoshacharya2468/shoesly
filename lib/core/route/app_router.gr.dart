@@ -22,9 +22,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     OrderSummaryRoute.name: (routeData) {
+      final args = routeData.argsAs<OrderSummaryRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const OrderSummaryPage(),
+        child: OrderSummaryPage(
+          key: args.key,
+          carts: args.carts,
+        ),
       );
     },
     ProductDashboardRoute.name: (routeData) {
@@ -72,16 +76,40 @@ class CartRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [OrderSummaryPage]
-class OrderSummaryRoute extends PageRouteInfo<void> {
-  const OrderSummaryRoute({List<PageRouteInfo>? children})
-      : super(
+class OrderSummaryRoute extends PageRouteInfo<OrderSummaryRouteArgs> {
+  OrderSummaryRoute({
+    Key? key,
+    required List<CartItem> carts,
+    List<PageRouteInfo>? children,
+  }) : super(
           OrderSummaryRoute.name,
+          args: OrderSummaryRouteArgs(
+            key: key,
+            carts: carts,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'OrderSummaryRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<OrderSummaryRouteArgs> page =
+      PageInfo<OrderSummaryRouteArgs>(name);
+}
+
+class OrderSummaryRouteArgs {
+  const OrderSummaryRouteArgs({
+    this.key,
+    required this.carts,
+  });
+
+  final Key? key;
+
+  final List<CartItem> carts;
+
+  @override
+  String toString() {
+    return 'OrderSummaryRouteArgs{key: $key, carts: $carts}';
+  }
 }
 
 /// generated route for

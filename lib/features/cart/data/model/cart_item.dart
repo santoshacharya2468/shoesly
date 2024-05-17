@@ -5,7 +5,7 @@ import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 part "cart_item.g.dart";
 
-@responseModel
+@model
 class CartItem {
   @JsonKey(includeFromJson: false, includeToJson: false)
   String? id;
@@ -29,4 +29,6 @@ class CartItem {
     c.id = doc.id;
     return c;
   }
+
+  Map<String, dynamic> toJson() => _$CartItemToJson(this);
 }
