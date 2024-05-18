@@ -57,6 +57,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ProductReviewListingRoute.name: (routeData) {
+      final args = routeData.argsAs<ProductReviewListingRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProductReviewListingPage(
+          key: args.key,
+          product: args.product,
+        ),
+      );
+    },
   };
 }
 
@@ -199,5 +209,44 @@ class ProductFilterRouteArgs {
   @override
   String toString() {
     return 'ProductFilterRouteArgs{key: $key, filter: $filter}';
+  }
+}
+
+/// generated route for
+/// [ProductReviewListingPage]
+class ProductReviewListingRoute
+    extends PageRouteInfo<ProductReviewListingRouteArgs> {
+  ProductReviewListingRoute({
+    Key? key,
+    required Product product,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ProductReviewListingRoute.name,
+          args: ProductReviewListingRouteArgs(
+            key: key,
+            product: product,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProductReviewListingRoute';
+
+  static const PageInfo<ProductReviewListingRouteArgs> page =
+      PageInfo<ProductReviewListingRouteArgs>(name);
+}
+
+class ProductReviewListingRouteArgs {
+  const ProductReviewListingRouteArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final Product product;
+
+  @override
+  String toString() {
+    return 'ProductReviewListingRouteArgs{key: $key, product: $product}';
   }
 }

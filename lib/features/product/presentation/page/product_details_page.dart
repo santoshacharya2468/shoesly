@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shoesly/core/enum/product_color.dart';
+import 'package:shoesly/core/route/app_router.dart';
 import 'package:shoesly/core/widget/app_netork_image.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
@@ -13,6 +14,7 @@ import 'package:shoesly/features/cart/presentation/widget/add_to_cart_success_bo
 import 'package:shoesly/features/cart/presentation/widget/cart_icon_button.dart';
 import 'package:shoesly/features/cart/presentation/widget/price_total_and_action_button_view.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
+import 'package:shoesly/features/product/presentation/page/app_outlined_button.dart';
 import 'package:shoesly/features/product/presentation/widget/product_color_picker.dart';
 import 'package:shoesly/features/product/presentation/widget/product_size_selector.dart';
 import 'package:shoesly/features/review/presentation/widget/product_reviews.dart';
@@ -190,8 +192,18 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       .titleSmall
                       ?.copyWith(fontSize: 12),
                 ),
-                ProductReviews(
+                ProductTopReviewView(
                   productId: product.id!,
+                  totalReview: product.totalReviews,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: AppOutlinedButton(
+                      title: "SEE ALL REVIEWS",
+                      onPressed: () {
+                        context.router
+                            .push(ProductReviewListingRoute(product: product));
+                      }),
                 )
               ],
             ),

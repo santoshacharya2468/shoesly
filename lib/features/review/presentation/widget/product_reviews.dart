@@ -3,24 +3,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly/core/di/di_config.dart';
 import 'package:shoesly/core/widget/error_view.dart';
 import 'package:shoesly/core/widget/loading_place_holder.dart';
+import 'package:shoesly/features/review/data/model/review_filter.dart';
 import 'package:shoesly/features/review/presentation/bloc/review_bloc.dart';
 import 'package:shoesly/features/review/presentation/widget/single_review_view.dart';
 
-class ProductReviews extends StatefulWidget {
+class ProductTopReviewView extends StatefulWidget {
   final String productId;
-  const ProductReviews({super.key, required this.productId});
+  final int totalReview;
+  const ProductTopReviewView(
+      {super.key, required this.productId, required this.totalReview});
 
   @override
-  State<ProductReviews> createState() => _ProductReviewsState();
+  State<ProductTopReviewView> createState() => _ProductTopReviewViewState();
 }
 
-class _ProductReviewsState extends State<ProductReviews> {
+class _ProductTopReviewViewState extends State<ProductTopReviewView> {
   final ReviewBloc reviewBloc = getIt<ReviewBloc>();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          reviewBloc..add(ReviewEvent.getReviews(productId: widget.productId)),
+      create: (context) => reviewBloc
+        ..add(ReviewEvent.getReviews(
+            productId: widget.productId, filter: ReviewFilter(count: 3))),
       child: BlocBuilder<ReviewBloc, ReviewState>(
         builder: (context, state) {
           return state.when(
@@ -31,19 +36,15 @@ class _ProductReviewsState extends State<ProductReviews> {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Reviews",
+                    Text("Reviews(${widget.totalReview})",
                         style: Theme.of(context).textTheme.titleLarge),
                     const SizedBox(
                       height: 8,
                     ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: reviews.length,
-                      itemBuilder: (context, index) {
-                        final review = reviews[index];
-                        return SingleReviewView(review: review);
-                      },
+                    Column(
+                      children: reviews
+                          .map((review) => SingleReviewView(review: review))
+                          .toList(),
                     )
                   ],
                 );

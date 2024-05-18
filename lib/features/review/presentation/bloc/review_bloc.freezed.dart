@@ -17,19 +17,20 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ReviewEvent {
   String get productId => throw _privateConstructorUsedError;
+  ReviewFilter get filter => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String productId) getReviews,
+    required TResult Function(String productId, ReviewFilter filter) getReviews,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String productId)? getReviews,
+    TResult? Function(String productId, ReviewFilter filter)? getReviews,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String productId)? getReviews,
+    TResult Function(String productId, ReviewFilter filter)? getReviews,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +62,7 @@ abstract class $ReviewEventCopyWith<$Res> {
           ReviewEvent value, $Res Function(ReviewEvent) then) =
       _$ReviewEventCopyWithImpl<$Res, ReviewEvent>;
   @useResult
-  $Res call({String productId});
+  $Res call({String productId, ReviewFilter filter});
 }
 
 /// @nodoc
@@ -78,12 +79,17 @@ class _$ReviewEventCopyWithImpl<$Res, $Val extends ReviewEvent>
   @override
   $Res call({
     Object? productId = null,
+    Object? filter = null,
   }) {
     return _then(_value.copyWith(
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as String,
+      filter: null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ReviewFilter,
     ) as $Val);
   }
 }
@@ -96,7 +102,7 @@ abstract class _$$GetReviewsImplCopyWith<$Res>
       __$$GetReviewsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String productId});
+  $Res call({String productId, ReviewFilter filter});
 }
 
 /// @nodoc
@@ -111,12 +117,17 @@ class __$$GetReviewsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productId = null,
+    Object? filter = null,
   }) {
     return _then(_$GetReviewsImpl(
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as String,
+      filter: null == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as ReviewFilter,
     ));
   }
 }
@@ -124,14 +135,16 @@ class __$$GetReviewsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetReviewsImpl implements _GetReviews {
-  const _$GetReviewsImpl({required this.productId});
+  const _$GetReviewsImpl({required this.productId, required this.filter});
 
   @override
   final String productId;
+  @override
+  final ReviewFilter filter;
 
   @override
   String toString() {
-    return 'ReviewEvent.getReviews(productId: $productId)';
+    return 'ReviewEvent.getReviews(productId: $productId, filter: $filter)';
   }
 
   @override
@@ -140,11 +153,12 @@ class _$GetReviewsImpl implements _GetReviews {
         (other.runtimeType == runtimeType &&
             other is _$GetReviewsImpl &&
             (identical(other.productId, productId) ||
-                other.productId == productId));
+                other.productId == productId) &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productId);
+  int get hashCode => Object.hash(runtimeType, productId, filter);
 
   @JsonKey(ignore: true)
   @override
@@ -155,27 +169,27 @@ class _$GetReviewsImpl implements _GetReviews {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String productId) getReviews,
+    required TResult Function(String productId, ReviewFilter filter) getReviews,
   }) {
-    return getReviews(productId);
+    return getReviews(productId, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String productId)? getReviews,
+    TResult? Function(String productId, ReviewFilter filter)? getReviews,
   }) {
-    return getReviews?.call(productId);
+    return getReviews?.call(productId, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String productId)? getReviews,
+    TResult Function(String productId, ReviewFilter filter)? getReviews,
     required TResult orElse(),
   }) {
     if (getReviews != null) {
-      return getReviews(productId);
+      return getReviews(productId, filter);
     }
     return orElse();
   }
@@ -210,11 +224,14 @@ class _$GetReviewsImpl implements _GetReviews {
 }
 
 abstract class _GetReviews implements ReviewEvent {
-  const factory _GetReviews({required final String productId}) =
-      _$GetReviewsImpl;
+  const factory _GetReviews(
+      {required final String productId,
+      required final ReviewFilter filter}) = _$GetReviewsImpl;
 
   @override
   String get productId;
+  @override
+  ReviewFilter get filter;
   @override
   @JsonKey(ignore: true)
   _$$GetReviewsImplCopyWith<_$GetReviewsImpl> get copyWith =>

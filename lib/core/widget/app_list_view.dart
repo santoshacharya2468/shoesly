@@ -13,6 +13,7 @@ class AppListView extends StatefulWidget {
   final bool shrinkWrap;
   final ScrollPhysics? physics;
   final ItemBuilder itemBuilder;
+  final String? noDatatext;
 
   ///indicates that the pagination is loading
   final bool loadingMore;
@@ -26,6 +27,7 @@ class AppListView extends StatefulWidget {
       this.shrinkWrap = false,
       this.physics,
       this.loadingMore = false,
+      this.noDatatext,
       this.onScrollEnd});
 
   @override
@@ -58,16 +60,22 @@ class _AppListViewState extends State<AppListView> {
     return Column(
       children: [
         Expanded(
-          child: ListView.builder(
-            itemCount: widget.itemCount,
-            reverse: widget.reverse,
-            padding: widget.padding,
-            scrollDirection: widget.scrollDirection,
-            controller: _scrollController,
-            itemBuilder: widget.itemBuilder,
-            shrinkWrap: widget.shrinkWrap,
-            physics: widget.physics,
-          ),
+          child: widget.itemCount == 0
+              ? Center(
+                  child: Text(
+                  widget.noDatatext ?? '',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ))
+              : ListView.builder(
+                  itemCount: widget.itemCount,
+                  reverse: widget.reverse,
+                  padding: widget.padding,
+                  scrollDirection: widget.scrollDirection,
+                  controller: _scrollController,
+                  itemBuilder: widget.itemBuilder,
+                  shrinkWrap: widget.shrinkWrap,
+                  physics: widget.physics,
+                ),
         ),
         if (widget.loadingMore)
           const Padding(

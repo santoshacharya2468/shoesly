@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:faker_dart/faker_dart.dart' hide Gender;
 import 'package:injectable/injectable.dart';
 import 'package:shoesly/core/constant/firestore_collection.dart';
 import 'package:shoesly/core/enum/product_color.dart';
@@ -141,14 +142,14 @@ class DatabaseSeeder {
         final review = Review(
             id: "",
             productId: product.id!,
-            score: 4.5,
+            score: Faker.instance.datatype.number(min: 1, max: 5),
             createdAt: DateTime.now(),
             user: ApplicationUser(
                 id: "",
-                name: "Nolan Cardor",
+                name: Faker.instance.name.fullName(),
                 imageUrl:
                     "https://c7.alamy.com/comp/2PWERD5/student-avatar-illustration-simple-cartoon-user-portrait-user-profile-icon-youth-avatar-vector-illustration-2PWERD5.jpg"),
-            content: "Perfect for keeping your feet dry and warm in damp");
+            content: Faker.instance.lorem.sentence());
         final json = review.toJson();
         json["createdAt"] = review.createdAt.toIso8601String();
         await db.collection(FirestoreCollection.productReviews).add(json);

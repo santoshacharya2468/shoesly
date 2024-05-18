@@ -8,6 +8,7 @@ import 'package:shoesly/features/product/data/model/product_filter.dart';
 import 'package:shoesly/features/product/presentation/page/product_dashboard_page.dart';
 import 'package:shoesly/features/product/presentation/page/product_details_page.dart';
 import 'package:shoesly/features/product/presentation/page/product_filter_page.dart';
+import 'package:shoesly/features/review/presentation/page/product_review_listing_page.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -24,6 +25,9 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: OrderSummaryRoute.page,
+        ),
+        AutoRoute(
+          page: ProductReviewListingRoute.page,
         ),
       ];
 }
