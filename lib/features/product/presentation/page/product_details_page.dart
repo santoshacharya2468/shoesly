@@ -128,6 +128,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                           ),
                           child: AppCachedNetworkImageView(
                             url: product.image,
+                            boxFit: BoxFit.contain,
                           ),
                         ),
                       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shoesly/core/widget/app_grid_view.dart';
 import 'package:shoesly/core/widget/error_view.dart';
 import 'package:shoesly/core/widget/loading_place_holder.dart';
 import 'package:shoesly/features/product/presentation/bloc/product_bloc.dart';
@@ -16,9 +17,12 @@ class ProductListingView extends StatelessWidget {
             initial: () => const SizedBox(),
             loading: () => const LoadingPlaceHolder(),
             loaded: (products) {
-              return GridView.builder(
+              return AppGridView(
                   itemCount: products.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  onScrollEnd: () {
+                    print("End ");
+                  },
+                  delegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
                       crossAxisCount: 2,
                       childAspectRatio: 2 / 3,

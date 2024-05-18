@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shoesly/core/constant/app_assets.dart';
-import 'package:shoesly/core/constant/app_colors.dart';
 import 'package:shoesly/core/route/app_router.dart';
+import 'package:shoesly/core/widget/app_indicator.dart';
 import 'package:shoesly/features/cart/presentation/bloc/cart_bloc.dart';
 
 class CartIconButton extends StatelessWidget {
@@ -29,13 +28,7 @@ class CartIconButton extends StatelessWidget {
                   BlocBuilder<CartBloc, CartState>(builder: (context, state) {
                 return state.whenOrNull(getCartSuccess: (carts) {
                       if (carts.isEmpty) return null;
-                      return Container(
-                        height: 8,
-                        width: 8,
-                        decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.waringColor),
-                      );
+                      return const AppIndicator();
                     }) ??
                     const SizedBox();
               }),
