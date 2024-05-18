@@ -5,6 +5,7 @@ import 'package:shoesly/core/route/app_router.dart';
 import 'package:shoesly/core/widget/app_card.dart';
 import 'package:shoesly/core/widget/app_netork_image.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
+import 'package:shoesly/core/widget/star_view.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 
 class SingleProductView extends StatelessWidget {
@@ -63,17 +64,8 @@ class SingleProductView extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Icon(
-                    Icons.star,
-                    color: Colors.yellow,
-                    size: 15,
-                  ),
-                  Text(
-                    " ${product.avgRating}",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  const SizedBox(
-                    width: 04,
+                  StarAndAvgScoreView(
+                    avgScore: product.avgRating,
                   ),
                   Text(
                     "(${product.totalReviews} Reviews)",

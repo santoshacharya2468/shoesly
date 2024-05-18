@@ -10,8 +10,8 @@ class StarView extends StatelessWidget {
     return const AppAssetImage(
       asset: AppAssets.starIcon,
       color: Colors.yellow,
-      height: 20,
-      width: 20,
+      height: 15,
+      width: 15,
     );
   }
 }

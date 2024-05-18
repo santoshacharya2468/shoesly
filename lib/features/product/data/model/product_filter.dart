@@ -10,8 +10,15 @@ class ProductFilter {
   ProductSort? sortBy;
   Gender? gender;
   ProductColor? color;
+  int limit;
 
-  ProductFilter({this.brand, this.range, this.sortBy, this.gender, this.color});
+  ProductFilter(
+      {this.brand,
+      this.range,
+      this.sortBy,
+      this.gender,
+      this.color,
+      required this.limit});
 
   int get appliedCount {
     int count = 0;
@@ -22,4 +29,6 @@ class ProductFilter {
     }
     return count;
   }
+
+  static int perPag = 10;
 }

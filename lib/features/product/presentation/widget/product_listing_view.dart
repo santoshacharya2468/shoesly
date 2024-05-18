@@ -7,7 +7,8 @@ import 'package:shoesly/features/product/presentation/bloc/product_bloc.dart';
 import 'package:shoesly/features/product/presentation/widget/single_product_view.dart';
 
 class ProductListingView extends StatelessWidget {
-  const ProductListingView({super.key});
+  final VoidCallback onScrollEnd;
+  const ProductListingView({super.key, required this.onScrollEnd});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +17,11 @@ class ProductListingView extends StatelessWidget {
         return state.when(
             initial: () => const SizedBox(),
             loading: () => const LoadingPlaceHolder(),
-            loaded: (products) {
+            loaded: (products, loading) {
               return AppGridView(
                   itemCount: products.length,
-                  onScrollEnd: () {
-                    print("End ");
-                  },
+                  onScrollEnd: onScrollEnd,
+                  loadingMore: loading,
                   delegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 10,
                       crossAxisCount: 2,

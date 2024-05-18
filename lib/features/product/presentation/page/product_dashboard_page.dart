@@ -20,7 +20,7 @@ class ProductDashboardPage extends StatefulWidget {
 
 class _ProductDashboardPageState extends State<ProductDashboardPage> {
   final ProductBloc productBloc = getIt<ProductBloc>();
-  ProductFilter filter = ProductFilter();
+  ProductFilter filter = ProductFilter(limit: ProductFilter.perPag);
 
   loadProducts() {
     productBloc.add(ProductEvent.getProducts(filter: filter));
@@ -38,13 +38,17 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
     return BaseView(
         title: "Discover",
         centerTitle: false,
-        floatingActionButton: FilterButton(
-          appliedFilter: filter,
-          onFilterChanged: (filter) {
-            this.filter = filter;
-            setState(() {});
-            loadProducts();
-          },
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(bottom: 18.0),
+          child: FilterButton(
+            appliedFilter: filter,
+            onFilterChanged: (filter) {
+              this.filter = filter;
+              setState(() {});
+              loadProducts();
+            },
+          ),
         ),
         titleStyle: const TextStyle(
             fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
@@ -61,8 +65,13 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
                   loadProducts();
                 },
               ),
-              const Expanded(
-                child: ProductListingView(),
+              Expanded(
+                child: ProductListingView(
+                  onScrollEnd: () {
+                    filter.limit += ProductFilter.perPag;
+                    loadProducts();
+                  },
+                ),
               ),
             ],
           ),

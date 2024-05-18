@@ -133,9 +133,10 @@ class DatabaseSeeder {
   }
 
   Future<void> seedReviews() async {
-    final products =
-        (await productRepository.getProducts(filter: ProductFilter())).data ??
-            [];
+    final products = (await productRepository.getProducts(
+                filter: ProductFilter(limit: 100000)))
+            .data ??
+        [];
 
     for (var product in products) {
       for (var i = 0; i < 10; i++) {

@@ -24,7 +24,7 @@ class _ProductFilterPageState extends State<ProductFilterPage> {
   late ProductFilter filter;
   @override
   void initState() {
-    filter = widget.filter ?? ProductFilter();
+    filter = widget.filter ?? ProductFilter(limit: ProductFilter.perPag);
     super.initState();
   }
 
@@ -87,7 +87,7 @@ class _ProductFilterPageState extends State<ProductFilterPage> {
                           Center(child: Text("RESET(${filter.appliedCount})")),
                       onPressed: () {
                         setState(() {
-                          filter = ProductFilter();
+                          filter = ProductFilter(limit: ProductFilter.perPag);
                         });
                       },
                     ),

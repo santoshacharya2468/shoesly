@@ -17,11 +17,15 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ProductBloc(this.repository) : super(const ProductState.initial()) {
     on<ProductEvent>((event, emit) async {
       await event.when(getProducts: (filter) async {
-        emit(const ProductState.loading());
+        if (state is _Loaded && filter.limit != ProductFilter.perPag) {
+          emit(ProductState.loaded((state as _Loaded).products, true));
+        } else {
+          emit(const ProductState.loading());
+        }
         try {
           final response = await repository.getProducts(filter: filter);
           if (response.success) {
-            emit(ProductState.loaded(response.data!));
+            emit(ProductState.loaded(response.data!, false));
           } else {
             emit(ProductState.error(response.message));
           }
