@@ -12,7 +12,7 @@ CartItem _$CartItemFromJson(Map<String, dynamic> json) => CartItem(
       quantity: (json['quantity'] as num).toInt(),
       productColor:
           $enumDecodeNullable(_$ProductColorEnumMap, json['productColor']),
-      size: (json['size'] as num?)?.toInt(),
+      size: json['size'] as num?,
     );
 
 Map<String, dynamic> _$CartItemToJson(CartItem instance) => <String, dynamic>{

@@ -10,7 +10,7 @@ class CartItem {
   @JsonKey(includeFromJson: false, includeToJson: false)
   String? id;
   final Product product;
-  final int? size;
+  final num? size;
   final ProductColor? productColor;
   final String userId;
   final int quantity;

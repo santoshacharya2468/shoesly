@@ -35,17 +35,27 @@ class ProductPriceRangeFilterView extends StatelessWidget {
             onChanged: (range) {
               onChanged(PriceRange(min: range.start, max: range.end));
             }),
-        // Row(
-        //     children: [0, 200, 750, 1750]
-        //         .map((e) => Expanded(
-        //               flex: 1 + 1750 ~/ (e == 0 ? 1 : e),
-        //               child: Text(
-        //                 "\$$e",
-        //                 style:
-        //                     Theme.of(context).textTheme.titleSmall?.copyWith(),
-        //               ),
-        //             ))
-        //         .toList())
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+              children: [0, 200, 750, 1750]
+                  .map((e) => Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: e == 1750 || e == 750
+                              ? Alignment.centerRight
+                              : Alignment.centerLeft,
+                          child: Text(
+                            "\$$e",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(),
+                          ),
+                        ),
+                      ))
+                  .toList()),
+        )
       ],
     );
   }

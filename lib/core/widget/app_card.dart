@@ -8,7 +8,8 @@ class AppCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.grey[200], borderRadius: BorderRadius.circular(20)),
+          color: const Color(0xff101010).withOpacity(0.05),
+          borderRadius: BorderRadius.circular(20)),
       child: child,
     );
   }

@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shoesly/core/widget/colum_with_padding.dart';
+import 'package:shoesly/core/widget/star_view.dart';
 import 'package:shoesly/features/review/data/model/review.dart';
 
 class SingleReviewView extends StatelessWidget {
@@ -8,35 +10,43 @@ class SingleReviewView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: ListTile(
-        leading: review.user.imageUrl != null
-            ? CircleAvatar(
-                backgroundImage:
-                    CachedNetworkImageProvider(review.user.imageUrl!),
-              )
-            : const CircleAvatar(),
-        title: Text(review.user.name ?? "username",
-            style: Theme.of(context).textTheme.titleMedium),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(review.score.toString()),
-                const Icon(Icons.star, color: Colors.yellow)
-              ],
-            ),
-            Text(
-              review.content,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall
-                  ?.copyWith(color: Colors.black),
-            ),
-          ],
-        ),
+    return Container(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Row(
+        children: [
+          Container(
+            child: review.user.imageUrl != null
+                ? CircleAvatar(
+                    backgroundImage:
+                        CachedNetworkImageProvider(review.user.imageUrl!),
+                  )
+                : const CircleAvatar(),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+              child: ColumnEachChildPadding(
+            padding: const EdgeInsets.only(bottom: 4),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(review.user.name ?? "",
+                      style: Theme.of(context).textTheme.titleMedium),
+                  Text(review.createdAt.toString().split(" ").first,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith())
+                ],
+              ),
+              Row(
+                children: List.generate(
+                    review.score.toInt(), (index) => const StarView()),
+              ),
+              Text(review.content)
+            ],
+          ))
+        ],
       ),
     );
   }

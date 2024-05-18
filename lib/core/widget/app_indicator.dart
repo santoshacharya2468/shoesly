@@ -12,8 +12,8 @@ class AppIndicator extends StatelessWidget {
     return Container(
       height: radius * 2,
       width: radius * 2,
-      decoration: const BoxDecoration(
-          shape: BoxShape.circle, color: AppColors.waringColor),
+      decoration: BoxDecoration(
+          shape: BoxShape.circle, color: color ?? AppColors.waringColor),
     );
   }
 }

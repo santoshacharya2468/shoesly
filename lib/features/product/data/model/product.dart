@@ -12,7 +12,7 @@ class Product {
   String? id;
   final String name;
   final String description;
-  final String image;
+  final List<String> images;
   final double price;
   final Brand brand;
   final num avgRating;
@@ -21,18 +21,20 @@ class Product {
   final List<ProductColor> colors;
   final Gender gender;
   DateTime? createdAt;
+  final String thumbnail;
 
   Product(
       {required this.id,
       required this.name,
       required this.description,
-      required this.image,
+      required this.images,
       required this.price,
       required this.brand,
       required this.avgRating,
       required this.totalReviews,
       required this.sizes,
       required this.colors,
+      required this.thumbnail,
       required this.gender});
 
   factory Product.fromJson(Map<String, dynamic> json) =>

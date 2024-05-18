@@ -36,7 +36,7 @@ class _AppStarterState extends State<AppStarter> {
               child: MaterialApp.router(
                 debugShowCheckedModeBanner: false,
                 themeMode: ThemeMode.light,
-                theme: ThemeData.dark().copyWith(
+                theme: ThemeData.light().copyWith(
                     primaryColor: AppColors.blackColor,
                     cardColor: Colors.grey[200],
                     dividerColor: Colors.grey[200],

@@ -21,13 +21,13 @@ class ProductColorPicker extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
+              color: const Color(0xFF000000).withOpacity(0.1),
+              spreadRadius: 0,
+              blurRadius: 20,
+              offset: const Offset(0, 0), // changes position of shadow
             ),
           ],
-          borderRadius: BorderRadius.circular(20)),
+          borderRadius: BorderRadius.circular(30)),
       child: Row(
         children: colors.map((e) {
           return InkWell(

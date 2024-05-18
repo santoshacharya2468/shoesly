@@ -58,7 +58,7 @@ class SingleCartItemView extends StatelessWidget {
                   child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: AppCachedNetworkImageView(
-                  url: cartItem.product.image,
+                  url: cartItem.product.thumbnail,
                 ),
               )),
             ),

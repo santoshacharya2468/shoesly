@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/core/route/app_router.dart';
+import 'package:shoesly/core/widget/app_card.dart';
+import 'package:shoesly/core/widget/app_indicator.dart';
 import 'package:shoesly/core/widget/app_netork_image.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
@@ -31,8 +34,8 @@ class ProductDetailsPage extends StatefulWidget {
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   num? selectedSize;
   ProductColor? selectedColor;
-  BlendMode lighten = BlendMode.color;
   int quantity = 1;
+  int imageIndex = 0;
   @override
   Widget build(BuildContext context) {
     final product = widget.product;
@@ -95,64 +98,63 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               padding: const EdgeInsets.only(bottom: 08),
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    children: BlendMode.values
-                        .map((e) => Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      lighten = e;
-                                    });
-                                  },
-                                  child: Text(e.name)),
-                            ))
-                        .toList(),
-                  ),
-                ),
-                Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(25.0),
-                      child: Hero(
-                        tag: ObjectKey(product.id!).toString(),
-                        child: ColorFiltered(
-                          colorFilter: ColorFilter.mode(
-                            selectedColor == null
-                                ? Colors.transparent
-                                : selectedColor!.value,
-                            lighten,
-                          ),
-                          child: AppCachedNetworkImageView(
-                            url: product.image,
-                            boxFit: BoxFit.contain,
+                AppCard(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: Hero(
+                          tag: ObjectKey(product.id!).toString(),
+                          child: ColorFiltered(
+                            colorFilter: ColorFilter.mode(
+                              selectedColor == null
+                                  ? Colors.transparent
+                                  : selectedColor!.value,
+                              BlendMode.hue,
+                            ),
+                            child: AppCachedNetworkImageView(
+                              url: product.images[imageIndex],
+                              boxFit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Positioned(
-                      bottom: 10,
-                      right: 05,
-                      child: ProductColorPicker(
-                        selectedColor: selectedColor,
-                        onColorSelected: (color) {
-                          setState(() {
-                            selectedColor = color;
-                          });
-                        },
-                        colors: product.colors,
-                      ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                                children: List.generate(
+                                    product.images.length,
+                                    (index) => Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 4.0),
+                                          child: AppIndicator(
+                                            color: index == imageIndex
+                                                ? Theme.of(context).primaryColor
+                                                : const Color(0xffB7B7B7),
+                                          ),
+                                        ))),
+                            ProductColorPicker(
+                              selectedColor: selectedColor,
+                              onColorSelected: (color) {
+                                setState(() {
+                                  selectedColor = color;
+                                });
+                              },
+                              colors: product.colors,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 Text(
                   product.name,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Row(
                   children: [
@@ -184,7 +186,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   },
                 ),
                 Text("Description",
-                    style: Theme.of(context).textTheme.titleLarge),
+                    style: Theme.of(context).textTheme.bodyLarge),
                 Text(
                   product.description,
                   style: Theme.of(context)

@@ -51,7 +51,7 @@ class _ProductDashboardPageState extends State<ProductDashboardPage> {
           ),
         ),
         titleStyle: const TextStyle(
-            fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+            fontSize: 20, color: Colors.black, fontWeight: FontWeight.w700),
         actions: const [CartIconButton()],
         body: BlocProvider(
           create: (context) => productBloc,

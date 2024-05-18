@@ -30,7 +30,7 @@ class SingleProductView extends StatelessWidget {
                     Hero(
                       tag: ObjectKey(product.id!).toString(),
                       child: AppCachedNetworkImageView(
-                        url: product.image,
+                        url: product.thumbnail,
                       ),
                     ),
                     Positioned(

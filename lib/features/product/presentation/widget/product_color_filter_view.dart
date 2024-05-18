@@ -36,14 +36,30 @@ class ProductColorFilterView extends StatelessWidget {
                   },
                   child: AppOutlinedBox(
                       color: selected ? AppColors.blackColor : null,
-                      child: Center(
-                          child: Text(
-                        e.text,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: selected ? Colors.white : null),
-                      ))),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                color: e.value,
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    width: 1, color: AppColors.borderColor)),
+                          ),
+                          const SizedBox(
+                            width: 03,
+                          ),
+                          Text(
+                            e.text,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: selected ? Colors.white : null),
+                          ),
+                        ],
+                      )),
                 ),
               );
             }).toList(),

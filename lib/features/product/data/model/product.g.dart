@@ -10,7 +10,8 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       id: json['id'] as String?,
       name: json['name'] as String,
       description: json['description'] as String,
-      image: json['image'] as String,
+      images:
+          (json['images'] as List<dynamic>).map((e) => e as String).toList(),
       price: (json['price'] as num).toDouble(),
       brand: Brand.fromJson(json['brand'] as Map<String, dynamic>),
       avgRating: json['avgRating'] as num,
@@ -19,6 +20,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       colors: (json['colors'] as List<dynamic>)
           .map((e) => $enumDecode(_$ProductColorEnumMap, e))
           .toList(),
+      thumbnail: json['thumbnail'] as String,
       gender: $enumDecode(_$GenderEnumMap, json['gender']),
     )..createdAt = json['createdAt'] == null
         ? null
@@ -28,7 +30,7 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
-      'image': instance.image,
+      'images': instance.images,
       'price': instance.price,
       'brand': instance.brand.toJson(),
       'avgRating': instance.avgRating,
@@ -37,6 +39,7 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
       'colors': instance.colors.map((e) => _$ProductColorEnumMap[e]!).toList(),
       'gender': _$GenderEnumMap[instance.gender]!,
       'createdAt': instance.createdAt?.toIso8601String(),
+      'thumbnail': instance.thumbnail,
     };
 
 const _$ProductColorEnumMap = {

@@ -46,9 +46,12 @@ class _ProductReviewListingPageState extends State<ProductReviewListingPage> {
     return BaseView(
         title: "Reviews(${product.totalReviews})",
         actions: [
-          StarAndAvgScoreView(
-            avgScore: product.avgRating,
-          )
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: StarAndAvgScoreView(
+              avgScore: product.avgRating,
+            ),
+          ),
         ],
         body: BlocProvider(
           create: (context) => bloc,
