@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:shoesly/core/constant/app_colors.dart';
 import 'package:shoesly/core/di/di_config.dart';
 import 'package:shoesly/core/route/app_router.dart';
 import 'package:shoesly/features/cart/presentation/bloc/cart_bloc.dart';
@@ -36,7 +37,7 @@ class _AppStarterState extends State<AppStarter> {
                 debugShowCheckedModeBanner: false,
                 themeMode: ThemeMode.light,
                 theme: ThemeData.dark().copyWith(
-                    //primaryColor: const Color(0xffF97316),
+                    primaryColor: AppColors.blackColor,
                     cardColor: Colors.grey[200],
                     dividerColor: Colors.grey[200],
                     textTheme: const TextTheme(
@@ -50,7 +51,7 @@ class _AppStarterState extends State<AppStarter> {
                         titleMedium: TextStyle(
                             color: Colors.black,
                             fontSize: 14,
-                            fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w700),
                         titleLarge: TextStyle(
                             color: Colors.black,
                             fontSize: 16,

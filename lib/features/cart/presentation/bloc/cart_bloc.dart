@@ -40,9 +40,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         await cartRepository.deleteCartItem(id);
 
         add(const CartEvent.getCart());
-      }, updateCartItem: (id, quantity) {
-        cartRepository.updateCartItem(id, quantity);
-        add(const CartEvent.getCart());
+      }, updateCartItem: (id, quantity) async {
+        await cartRepository.updateCartItem(id, quantity);
+        final response = await cartRepository.getCartItems(userId!);
+        if (response.success) {
+          emit(CartState.getCartSuccess(cartItems: response.data!));
+        } else {
+          emit(CartState.failure(response.message));
+        }
       }, addToCart: (request) async {
         request.userId = userId;
         emit(const CartState.addToCartState());

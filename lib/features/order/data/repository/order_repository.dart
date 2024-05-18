@@ -14,12 +14,16 @@ class OrderRepository implements IOrderRepository {
   @override
   Future<ApiReponse<void>> addOrder({required AddOrderRequest order}) async {
     final data = order.toJson();
+    //add created at time to order
     data["createdAt"] = FieldValue.serverTimestamp();
+    //make order for current user
     data["userId"] = auth.currentUser!.uid;
     await db.collection(FirestoreCollection.orders).add(data);
 
-    //remove item from carts after order placed
-    //this will be done by cloud function
+    //remove cart items
+    await Future.wait(order.items.map(
+        (e) => db.collection(FirestoreCollection.carts).doc(e.id).delete()));
+
     return ApiReponse(
         success: true, message: "Order Placed Successfully", data: null);
   }

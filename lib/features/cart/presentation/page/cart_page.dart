@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shoesly/core/extension/cart_extension.dart';
 import 'package:shoesly/core/route/app_router.dart';
+import 'package:shoesly/core/widget/app_list_view.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/core/widget/error_view.dart';
 import 'package:shoesly/core/widget/loading_place_holder.dart';
@@ -26,6 +27,9 @@ class _CartPageState extends State<CartPage> {
         bottomNavigationBar: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
             return state.whenOrNull(getCartSuccess: (carts) {
+                  if (carts.isEmpty) {
+                    return const SizedBox();
+                  }
                   return PriceTotalAndActionButtonView(
                     buttonText: "CHECK OUT",
                     title: "Grand Total",
@@ -47,8 +51,9 @@ class _CartPageState extends State<CartPage> {
                 addToCartState: loadingView,
                 failure: errorView,
                 getCartSuccess: (carts) {
-                  return ListView.builder(
+                  return AppListView(
                     itemCount: carts.length,
+                    noDatatext: "Cart is empty",
                     itemBuilder: (context, index) {
                       final cart = carts[index];
                       return SingleCartItemView(
