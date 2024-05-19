@@ -1,7 +1,10 @@
 # SHOESLY 
+Flutter 3.19.6 • channel stable • https://github.com/flutter/flutter.git
 
 ## Project Setup Instructions
+
 To get the project up and running on your local machine, follow these steps:
+
 
 1. **Clone the repository:**
     ```bash
