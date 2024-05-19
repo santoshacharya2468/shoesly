@@ -33,7 +33,7 @@ class DatabaseSeeder {
     var products = [
       Product(
           id: "",
-          name: "Jordan 1 Retro High Tie Dye",
+          name: Faker.instance.commerce.productName(),
           description:
               "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
           images: [
@@ -53,7 +53,7 @@ class DatabaseSeeder {
 
       Product(
           id: "",
-          name: "Jordan 1 Retro High Tie Dye",
+          name: Faker.instance.commerce.productName(),
           description:
               "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
           images: [
@@ -72,7 +72,7 @@ class DatabaseSeeder {
           gender: Gender.unisex),
       Product(
           id: "",
-          name: "Jordan 1 Retro High Tie Dye",
+          name: Faker.instance.commerce.productName(),
           description:
               "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
           images: [
@@ -91,7 +91,7 @@ class DatabaseSeeder {
 
       Product(
           id: "",
-          name: "Jordan 1 Retro High Tie Dye",
+          name: Faker.instance.commerce.productName(),
           description:
               "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
           images: [
@@ -111,7 +111,7 @@ class DatabaseSeeder {
           gender: Gender.unisex),
       Product(
           id: "",
-          name: "Jordan 1 Retro High Tie Dye",
+          name: Faker.instance.commerce.productName(),
           description:
               "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
           images: [
@@ -131,7 +131,7 @@ class DatabaseSeeder {
 
       Product(
           id: "",
-          name: "Jordan 1 Retro High Tie Dye",
+          name: Faker.instance.commerce.productName(),
           description:
               "Engineered to crush any movement-based workout, these On sneakers enhance the label's original Cloud sneaker with cutting edge technologies for a",
           images: [

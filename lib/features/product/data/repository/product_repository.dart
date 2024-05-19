@@ -30,13 +30,15 @@ class ProductRepository implements IProductRepository {
       query = query.where("brand.id", isNotEqualTo: null);
     }
     if (filter.color != null) {
-      query = query.where("colors", arrayContains: filter.color!.name);
+      query = query.where("colors", arrayContainsAny: [filter.color!.name]);
     } else {
       query = query.where("colors",
           arrayContainsAny: ProductColor.values.map((e) => e.name).toList());
     }
     if (filter.gender != null) {
       query = query.where("gender", isEqualTo: filter.gender!.name);
+    } else {
+      query = query.where("gender", isNotEqualTo: null);
     }
     if (filter.sortBy != null) {
       switch (filter.sortBy!) {
@@ -47,13 +49,11 @@ class ProductRepository implements IProductRepository {
           query = query.orderBy("price", descending: true);
           break;
         case ProductSort.recent:
-          query = query.orderBy("createdAt", descending: true);
+          query = query.orderBy("avgRating", descending: true);
           break;
         default:
           break;
       }
-    } else {
-      query = query.orderBy("createdAt", descending: true);
     }
     query = query
         .where("price", isGreaterThanOrEqualTo: filter.range?.min ?? 0)

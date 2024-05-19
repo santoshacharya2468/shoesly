@@ -29,8 +29,11 @@ class SingleProductView extends StatelessWidget {
                   children: [
                     Hero(
                       tag: ObjectKey(product.id!).toString(),
-                      child: AppCachedNetworkImageView(
-                        url: product.thumbnail,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: AppCachedNetworkImageView(
+                          url: product.thumbnail,
+                        ),
                       ),
                     ),
                     Positioned(
@@ -57,6 +60,7 @@ class SingleProductView extends StatelessWidget {
             children: [
               Text(
                 product.name,
+                maxLines: 1,
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium

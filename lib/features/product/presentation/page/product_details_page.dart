@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/core/route/app_router.dart';
 import 'package:shoesly/core/widget/app_card.dart';
 import 'package:shoesly/core/widget/app_indicator.dart';
+import 'package:shoesly/core/widget/app_netork_image.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
 import 'package:shoesly/features/cart/data/model/add_to_cart_request_model.dart';
@@ -97,79 +99,71 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               padding: const EdgeInsets.only(bottom: 08),
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppCard(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 12, left: 12, right: 12),
-                        child: ColorFiltered(
-                          colorFilter: ColorFilter.mode(
-                              selectedColor == null
-                                  ? Colors.transparent
-                                  : selectedColor!.value,
-                              BlendMode.color),
-                          child: Container(
-                            color: Colors.white,
-                            child: Image.asset("assets/icons/img.png"),
-                            // child: AppCachedNetworkImageView(
-                            //   url: product.images[imageIndex],
-                            // ),
+                SizedBox(
+                  height: 250,
+                  child: AppCard(
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: PageView.builder(
+                            itemCount: product.images.length,
+                            onPageChanged: (index) {
+                              setState(() {
+                                imageIndex = index;
+                              });
+                            },
+                            itemBuilder: (context, index) => Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 20, left: 12, right: 12),
+                              child: ColorFiltered(
+                                colorFilter: ColorFilter.mode(
+                                    selectedColor == null
+                                        ? Colors.transparent
+                                        : selectedColor!.value,
+                                    BlendMode.color),
+                                child: Container(
+                                  color: Colors.white,
+                                  child: AppCachedNetworkImageView(
+                                    url: product.images[imageIndex],
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      // Padding(
-                      //   padding:
-                      //       const EdgeInsets.only(top: 12, left: 12, right: 12),
-                      //   child: ColorFiltered(
-                      //     colorFilter: ColorFilter.mode(
-                      //       selectedColor == null
-                      //           ? Colors.transparent
-                      //           : selectedColor!.value,
-                      //       BlendMode.hue,
-                      //     ),
-                      //     child: Container(
-                      //       color: Colors.red,
-                      //       child: Hero(
-                      //         tag: ObjectKey(product.id!).toString(),
-                      //         child: AppCachedNetworkImageView(
-                      //           url: product.images[imageIndex],
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Row(
-                                children: List.generate(
-                                    product.images.length,
-                                    (index) => Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 4.0),
-                                          child: AppIndicator(
-                                            color: index == imageIndex
-                                                ? Theme.of(context).primaryColor
-                                                : const Color(0xffB7B7B7),
-                                          ),
-                                        ))),
-                            ProductColorPicker(
-                              selectedColor: selectedColor,
-                              onColorSelected: (color) {
-                                setState(() {
-                                  selectedColor = color;
-                                });
-                              },
-                              colors: product.colors,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
+                                  children: List.generate(
+                                      product.images.length,
+                                      (index) => Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 4.0),
+                                            child: AppIndicator(
+                                              color: index == imageIndex
+                                                  ? Theme.of(context)
+                                                      .primaryColor
+                                                  : const Color(0xffB7B7B7),
+                                            ),
+                                          ))),
+                              ProductColorPicker(
+                                selectedColor: selectedColor,
+                                onColorSelected: (color) {
+                                  setState(() {
+                                    selectedColor = color;
+                                  });
+                                },
+                                colors: product.colors,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Text(
