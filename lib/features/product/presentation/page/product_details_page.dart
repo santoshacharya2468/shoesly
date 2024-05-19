@@ -120,7 +120,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                                     selectedColor == null
                                         ? Colors.transparent
                                         : selectedColor!.value,
-                                    BlendMode.color),
+                                    BlendMode.hue),
                                 child: Container(
                                   color: Colors.white,
                                   child: AppCachedNetworkImageView(

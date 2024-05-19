@@ -33,7 +33,7 @@ class _CartPageState extends State<CartPage> {
                   return PriceTotalAndActionButtonView(
                     buttonText: "CHECK OUT",
                     title: "Grand Total",
-                    subTitle: "\$ ${carts.total.toStringAsFixed(2)}",
+                    subTitle: "\$${carts.total.toStringAsFixed(2)}",
                     onButtonPressed: () {
                       context.router.push(OrderSummaryRoute(carts: carts));
                     },

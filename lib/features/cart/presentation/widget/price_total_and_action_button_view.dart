@@ -35,7 +35,7 @@ class PriceTotalAndActionButtonView extends StatelessWidget {
               ),
               Text(
                 subTitle,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context).textTheme.titleMedium,
               )
             ],
           ),

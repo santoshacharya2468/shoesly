@@ -1,7 +1,6 @@
 # SHOESLY 
 
 ## Project Setup Instructions
-
 To get the project up and running on your local machine, follow these steps:
 
 1. **Clone the repository:**
@@ -41,7 +40,7 @@ To get the project up and running on your local machine, follow these steps:
 ## Assumptions Made During Development
 
 1. **Brand Images:** All brand images are in SVG format.
-2. **Product Thumbnails and Images:** Products have both thumbnails and images, both transparent in nature.
+2. **Product Thumbnails and Images:** For managing user authentication i am using firebase Anonymous Signin.
 3. **Product Gender:** Products are designed for only one gender or can be selected as unisex.
 4. **Color Options:** Products have multiple color options available.
 5. **Cart Selection:** While adding to the cart, the color and size of the product must be selected.
@@ -66,10 +65,8 @@ To get the project up and running on your local machine, follow these steps:
     - **Challenge:** Ensuring the app functions seamlessly on both iOS and Android devices.
     - **Solution:** Regularly tested on both platforms during development and used platform-specific code sparingly.
 
-5. **Dependency Management:**
-    - **Challenge:** Keeping dependencies up to date and resolving conflicts.
-    - **Solution:** Used `flutter pub outdated` to monitor outdated packages and resolve conflicts promptly.
 
 ## Additional Features and Improvements
 1. **State Management:** Implemented a state management solution using Flutter bloc for better scalability and maintainability.
 2. **Improved UI/UX:** Enhanced the user interface with custom widgets and animations for a better user experience.
+3. **Database Seeder:** Added database seeder service to seed products and reviews.
