@@ -5,6 +5,8 @@ import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 part "cart_item.g.dart";
 
+///model for cart item
+///after written in database
 @model
 class CartItem {
   @JsonKey(includeFromJson: false, includeToJson: false)

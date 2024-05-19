@@ -4,6 +4,10 @@ import 'package:shoesly/core/enum/product_sort.dart';
 import 'package:shoesly/features/brand/data/model/brand.dart';
 import 'package:shoesly/features/product/data/model/price_range.dart';
 
+///This class is used to filter the product from database
+///one or more argument can be null
+///brand, range, gender, color
+///null argument will be replaced by their default
 class ProductFilter {
   Brand? brand;
   PriceRange? range;

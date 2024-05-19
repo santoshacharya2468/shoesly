@@ -11,6 +11,8 @@ import 'package:shoesly/features/cart/presentation/widget/cart_quantity_button.d
 
 class SingleCartItemView extends StatelessWidget {
   final CartItem cartItem;
+
+  ///onDelete will be call when user swipe to delete
   final VoidCallback onDelete;
   final void Function(int quantity) onUpdate;
   const SingleCartItemView(
@@ -40,6 +42,7 @@ class SingleCartItemView extends StatelessWidget {
                 AppAssets.trashIcon,
                 height: 20,
                 width: 20,
+                // ignore: deprecated_member_use
                 color: Colors.white,
               ),
             ),

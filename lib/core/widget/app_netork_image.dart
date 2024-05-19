@@ -22,7 +22,8 @@ class AppCachedNetworkImageView extends StatelessWidget {
       height: height,
       width: width,
       color: color,
-      placeholder: (context, url) => const CupertinoActivityIndicator(),
+      placeholder: (context, url) => const SizedBox(
+          width: 40, height: 40, child: CupertinoActivityIndicator()),
       fit: boxFit,
     );
   }

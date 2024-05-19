@@ -6,6 +6,8 @@ import 'package:shoesly/features/cart/presentation/widget/cart_quantity_button.d
 import 'package:shoesly/features/cart/presentation/widget/price_total_and_action_button_view.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 
+///This widget is used to show bottom sheet where user can add quantity of product
+///and add to cart
 class AddToCartBottomSheetView extends StatefulWidget {
   final Product product;
   const AddToCartBottomSheetView({super.key, required this.product});

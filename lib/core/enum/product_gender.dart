@@ -1,5 +1,6 @@
 enum Gender { men, women, unisex }
 
+///This type of enum is used for product gender
 extension GenderText on Gender {
   String get text {
     switch (this) {

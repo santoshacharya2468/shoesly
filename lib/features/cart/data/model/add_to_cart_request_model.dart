@@ -3,6 +3,9 @@ import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/features/product/data/model/product.dart';
 part "add_to_cart_request_model.g.dart";
 
+///request model for add to cart
+///userId will be get from firebase auth
+///
 @requestModel
 class AddToCartRequestModel {
   final Product product;

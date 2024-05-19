@@ -7,8 +7,14 @@ enum ViewType { textType, circularType }
 
 class SingleBrandView extends StatelessWidget {
   final Brand brand;
+
+  /// brand will be selected when user tap on it
   final bool selected;
   final VoidCallback onPressed;
+
+  ///View type can be textType or circaulaType
+  ///textType will show brand name
+  ///circularType will show brand logo
   final ViewType type;
   const SingleBrandView(
       {super.key,
@@ -54,6 +60,7 @@ class SingleBrandView extends StatelessWidget {
               child: Center(
                 child: SvgPicture.network(
                   brand.logo,
+                  // ignore: deprecated_member_use
                   color: Colors.grey,
                 ),
               ),

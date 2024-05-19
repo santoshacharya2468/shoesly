@@ -5,6 +5,8 @@ import 'package:shoesly/core/enum/product_color.dart';
 class ProductColorPicker extends StatelessWidget {
   final List<ProductColor> colors;
   final ProductColor? selectedColor;
+
+  ///[onColorSelected] will be called when user select any color
   final void Function(ProductColor code) onColorSelected;
   const ProductColorPicker(
       {super.key,

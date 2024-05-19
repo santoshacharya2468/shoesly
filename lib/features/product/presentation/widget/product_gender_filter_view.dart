@@ -5,6 +5,8 @@ import 'package:shoesly/core/widget/app_outline_box.dart';
 
 class ProductGenderFilterView extends StatelessWidget {
   final Gender? gender;
+
+  ///[onSelected] will be called when user select gender
   final void Function(Gender gender) onSelected;
   const ProductGenderFilterView(
       {super.key, required this.onSelected, this.gender});

@@ -7,6 +7,7 @@ import 'package:shoesly/core/widget/app_outlined_text_button.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
 import 'package:shoesly/features/cart/presentation/bloc/cart_bloc.dart';
 
+///Widget will be shown when user add to cart event is success
 class AddToCartSuccessBottomSheet extends StatelessWidget {
   const AddToCartSuccessBottomSheet({super.key});
 

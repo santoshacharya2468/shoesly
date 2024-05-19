@@ -7,7 +7,11 @@ part "brand.g.dart";
 class Brand {
   String? id;
   final String name;
+
+  ///logo url always be svg
   final String logo;
+
+  ///total product in this brand
   final int totalProducts;
   Brand({required this.name, required this.logo, required this.totalProducts});
 

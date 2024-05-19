@@ -26,6 +26,7 @@ class BaseView extends StatelessWidget {
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
       bottomNavigationBar: bottomNavigationBar,
+      //  backgroundColor: Colors.transparent,
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12), child: body),
       appBar: AppBar(

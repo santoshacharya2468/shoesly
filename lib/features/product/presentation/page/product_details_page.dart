@@ -1,13 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shoesly/core/enum/product_color.dart';
 import 'package:shoesly/core/route/app_router.dart';
 import 'package:shoesly/core/widget/app_card.dart';
 import 'package:shoesly/core/widget/app_indicator.dart';
-import 'package:shoesly/core/widget/app_netork_image.dart';
 import 'package:shoesly/core/widget/base_view.dart';
 import 'package:shoesly/core/widget/colum_with_padding.dart';
 import 'package:shoesly/features/cart/data/model/add_to_cart_request_model.dart';
@@ -83,6 +81,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
 
                 if (count != null) {
                   if (mounted) {
+                    // ignore: use_build_context_synchronously
                     context.read<CartBloc>().add(CartEvent.addToCart(
                           AddToCartRequestModel(
                               product: product,
@@ -102,23 +101,44 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(25.0),
-                        child: Hero(
-                          tag: ObjectKey(product.id!).toString(),
-                          child: ColorFiltered(
-                            colorFilter: ColorFilter.mode(
+                        padding:
+                            const EdgeInsets.only(top: 12, left: 12, right: 12),
+                        child: ColorFiltered(
+                          colorFilter: ColorFilter.mode(
                               selectedColor == null
                                   ? Colors.transparent
                                   : selectedColor!.value,
-                              BlendMode.hue,
-                            ),
-                            child: AppCachedNetworkImageView(
-                              url: product.images[imageIndex],
-                              boxFit: BoxFit.contain,
-                            ),
+                              BlendMode.color),
+                          child: Container(
+                            color: Colors.white,
+                            child: Image.asset("assets/icons/img.png"),
+                            // child: AppCachedNetworkImageView(
+                            //   url: product.images[imageIndex],
+                            // ),
                           ),
                         ),
                       ),
+                      // Padding(
+                      //   padding:
+                      //       const EdgeInsets.only(top: 12, left: 12, right: 12),
+                      //   child: ColorFiltered(
+                      //     colorFilter: ColorFilter.mode(
+                      //       selectedColor == null
+                      //           ? Colors.transparent
+                      //           : selectedColor!.value,
+                      //       BlendMode.hue,
+                      //     ),
+                      //     child: Container(
+                      //       color: Colors.red,
+                      //       child: Hero(
+                      //         tag: ObjectKey(product.id!).toString(),
+                      //         child: AppCachedNetworkImageView(
+                      //           url: product.images[imageIndex],
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Row(

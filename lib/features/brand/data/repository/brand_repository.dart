@@ -11,6 +11,7 @@ class BrandRepository implements IBrandRepository {
   final FirebaseFirestore db;
   BrandRepository({required this.db});
 
+  ///get all brands from firestore database
   @override
   Future<ApiResponseList<Brand>> getBrands() async {
     final response = await db.collection(FirestoreCollection.bands).get();

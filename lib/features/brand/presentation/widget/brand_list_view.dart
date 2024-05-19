@@ -7,6 +7,9 @@ import 'package:shoesly/features/brand/data/model/brand.dart';
 import 'package:shoesly/features/brand/presentation/bloc/brand_bloc.dart';
 import 'package:shoesly/features/brand/presentation/widget/single_brand_view.dart';
 
+///List all brands in horizontal view
+///onSelected will be called when user tap on brand
+///selectedBrand will be selected brand
 class BrandListView extends StatefulWidget {
   final void Function(Brand? brand) onSelected;
   final Brand? selectedBrand;
